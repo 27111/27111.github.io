@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 50px;
+            height: 50px;
+            display: none;
+        }
+
+        .box {
+            width: 150px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: orangered;
+            margin: 0 auto;
+            padding: 5px;
+            transition: all .5s;
+            position: relative;
+            color: #fff;
+        }
+
+        .box .dot {
+            width: 75px;
+            height: 40px;
+            background-color: rgba(222, 222, 244, 1);
+            border-radius: 20px;
+            transition: inherit;
+            transform: translateZ(1px);
+        }
+
+        .box .left {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(75px);
+            transition: inherit;
+        }
+
+        .box .right {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+            transition: inherit;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(0px);
+        }
+
+        input:checked+.box {
+            background-color: yellowgreen;
+        }
+
+        input:checked+.box .dot {
+            transform: translateX(65px);
+            background-color: rgb(111, 111, 111);
+        }
+
+        input:checked+.box .left {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(0px);
+        }
+
+        input:checked+.box .right {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-75px);
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <input type="checkbox">
+        <div class="box">
+            <div class="left">OFF</div>
+            <div class="right">ON</div>
+            <div class="dot"></div>
+        </div>
+    </label>
+</body>
+
+</html>

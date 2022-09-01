@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="circle">
+        <button>开始<span><i></i></span></button>
+    </ul>
+    <style>
+        .circle {
+            width: 600px;
+            height: 600px;
+            background-color: bisque;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgb(0, 0, 0, 0.6);
+        }
+
+        span {
+            display: block;
+            width: 8px;
+            height: 160px;
+            position: absolute;
+            top: -160px;
+            background-color: red;
+            transform-origin: center 118%;
+            /* transform: rotate(0deg); */
+            /* transition: all 4s; */
+            /* z-index: 9; */
+        }
+
+        i {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 0, 0, 0);
+            position: absolute;
+            top: -20px;
+            left: -6px;
+            box-sizing: border-box;
+            border: 10px solid red;
+            border-bottom: 20px solid red;
+            border-top: 0;
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        button {
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            position: absolute;
+            top: 260px;
+            left: 260px;
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #FFD700;
+            background-color: red;
+            transition: all 4s;
+        }
+
+        li {
+            background-color: rgb(0, 0, 0, 0);
+            width: 200px;
+            height: 300px;
+            box-sizing: border-box;
+            border: 100px solid;
+            border-top: 300px solid;
+            border-bottom: 0;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            position: absolute;
+            left: 200px;
+            transform-origin: center 100%;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        p {
+            display: block;
+            position: absolute;
+            bottom: 150px;
+        }
+    </style>
+    <script>
+        var node = document.querySelector('ul');
+        var hand = document.querySelector('span')
+        var button = document.querySelector('button')
+        // var current = 0;
+        var num = 0;
+        var du = 36;
+        var arr = ['电脑', '谢谢参与', '手机',  '谢谢参与','液晶电视', '谢谢参与','一箱零食', '谢谢参与',  '高达模型', '谢谢参与']
+        for (let i = 0; i < 360 / 36; i++) {
+            var li = document.createElement('li');
+            li.style.transform = 'rotate(' + (i * 36 - 18) + 'deg)';
+            node.appendChild(li);
+            if (i % 2 === 0) {
+                li.style.borderColor = '#ffec89';
+                li.style['border-left-color'] = 'transparent';
+                li.style['border-right-color'] = 'transparent';
+            } else {
+                li.style.borderColor = '#ff814f';
+                li.style['border-left-color'] = 'transparent';
+                li.style['border-right-color'] = 'transparent';
+            }
+        }
+        var el = node.querySelectorAll('li');
+        console.log(el);
+        for (var i = 0; i < arr.length; i++) {
+            el[i].innerHTML = '<p>' + arr[i] + '</p>';
+        }
+        // debugger
+        function show() {
+            var timer = null;
+            var step = 0;
+            clearInterval(timer);
+            timer = setInterval(() => {
+                if (Math.floor(step / 360) < 4) {
+                    step = Math.floor(Math.random() * 3600);
+                } else {
+                    button.style.transform = 'rotate(' + step + 'deg)';
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        num = step % 360;
+                        console.log(num);
+                        console.log(du * 2);
+                        if (num < du) {
+                            alert('谢谢参与')
+                        } else if (num < du * 2) {
+                            alert('手机')
+                        } else if (num < du * 3) {
+                            alert('谢谢参与')
+                        } else if (num < du * 4) {
+                            alert('液晶电视')
+                        } else if (num < du * 5) {
+                            alert('谢谢参与')
+                        } else if (num < du * 6) {
+                            alert('一箱零食')
+                        } else if (num < du * 7) {
+                            alert('谢谢参与')
+                        } else if (num < du * 8) {
+                            alert('高达模型')
+                        } else if (num < du * 9) {
+                            alert('谢谢参与')
+                        } else if (num < du * 10) {
+                            alert('电脑')
+                        }
+                        button.style.transition = '0s';
+                        button.style.transform = 'rotate(90deg)';
+                        button.disabled = false;
+                    }, 4000)
+                }
+            }, 30)
+        }
+        // show();
+        button.onclick = () => {
+            button.style.transition = 'all 4s';
+            button.disabled = true;
+            show();
+        }
+
+    </script>
+</body>
+
+</html>

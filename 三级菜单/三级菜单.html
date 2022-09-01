@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            width: 200px;
+        }
+
+        a {
+            font-size: 24px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .ul1 .li1 {
+            position: relative;
+            width: 200px;
+            padding: 10px;
+            background-color: bisque;
+        }
+
+        .ul2 {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            display: none;
+            z-index: 1;
+        }
+
+        .ul2 .li2 {
+            padding: 10px;
+            background-color: orangered;
+        }
+
+        .ul3 {
+            position: absolute;
+            width: 200%;
+            top: 0;
+            left: 100%;
+            display: none;
+            z-index: 2;
+        }
+
+        .ul3 .li3 {
+            padding: 10px;
+            background-color: greenyellow;
+        }
+
+        .click {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="ul1"></ul>
+    <script>
+        function getJson(url, callback) {
+            var xxx = new XMLHttpRequest();
+            xxx.open("GET", url, true);
+            xxx.send();
+            xxx.onreadystatechange = function () {
+                if (xxx.readyState === 4 && xxx.status === 200) {
+                    return callback(JSON.parse(xxx.response))
+                }
+            }
+        }
+
+        function chuli(obj) {
+            var arr = [];
+            $.each(obj, function (i, e) {
+                var map = {};
+                map.id = e.slice(0, e.indexOf(":"));
+                map.pse = e.slice(e.indexOf(":") + 1);
+                arr.push(map);
+            })
+            arr.sort(function (a, b) {
+                return a.id - b.id;
+            })
+            // console.log(arr);
+            var arr1 = [];
+            var newarr1 = []
+            arr.map(function (ele) {
+                if ((ele.id).length === 2) {
+                    arr1.push(ele);
+                }
+            })
+            // console.log(arr1);
+            arr1.forEach(function (e) {
+                // console.log(e.id);
+                e.chldren = arr.filter(el => {
+                    if (el.id !== e.id && (el.id).length === 4) {
+                        return (el.id).substring(0, 2) === e.id;
+                    }
+                })
+                $(e.chldren).each(function (i, n) {
+                    n.chldren = arr.filter(ele => {
+                        if (n.id !== ele.id && e.id !== ele.id) {
+                            return n.id === (ele.id).slice(0, 4);
+                        }
+                    })
+                })
+            })
+            return arr1;
+        }
+
+        getJson("./城市.json", function (res) {
+            // console.log(chuli(res));
+            var date = chuli(res);
+            // console.log(date);
+            var li1 = '';
+            date.forEach(e => {
+                // console.log(e);
+                var li2 = '';
+                e.chldren.forEach(function (el) {
+                    // console.log(el);
+                    var li3 = ''
+                    el.chldren.forEach(function (ele) {
+                        // console.log(ele);
+                        li3 += `<li class="li3">
+                                    <a href="##">`+ ele.pse + `</a>
+                                </li>`;
+                    })
+                    li2 += `<li class="li2">
+                                <a href="##">`+ el.pse + `</a>
+                                <ul class="ul3">`+ li3 + `</ul>
+                            </li>`;
+                })
+                li1 += `<li class="li1">
+                                <a href="##">`+ e.pse + `</a>
+                                <ul class="ul2">`+ li2 + `</ul>
+                            </li>`;
+            })
+            $(".ul1").html(li1);
+            $(".ul1 .li1").children("a").each(function (i, e) {
+                $(e).on("click", function () {
+                    $(this).siblings().toggle().parent().siblings().children("a").siblings().hide();
+                    $(this).toggleClass("click").parent().siblings().children("a").removeClass("click");
+                })
+            })
+            // console.log($(".ul2 .li2").children("a"));
+            $(".ul2 .li2").children("a").each(function (i, e) {
+                $(e).on("click", function () {
+                    console.log(this);
+                    $(this).siblings().toggle().parent().siblings().children("a").siblings().hide();
+                    $(this).toggleClass("click").parent().siblings().children("a").removeClass("click");
+                })
+            })
+
+            $(".ul3 .li3").children("a").each(function (i, e) {
+                $(e).on("click", function () {
+                    $(this).toggleClass("click").parent().siblings().children("a").removeClass("click");
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

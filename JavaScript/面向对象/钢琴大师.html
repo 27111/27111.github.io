@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .stage {
+            width: 100%;
+            max-width: 580px;
+            height: 100vh;
+            background-image: url('./钢琴大师img/bg.png');
+            background-size: 100% auto;
+        }
+
+        .stage .main {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .stage .main .kuai {
+            display: block;
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background-color: red;
+            border-radius: 8px;
+            opacity: 0.4;
+        }
+
+        .stage .main i {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            top: 0;
+            left: 0;
+            background-image: url('./钢琴大师img/jingling.png');
+            background-position: -182px -77px;
+            background-size: 548px 262px;
+        }
+
+        .stage .main i.fDot {
+            background-image: url('./钢琴大师img/jingling.png');
+            background-position: -1.6px -57px;
+            background-size: 548px 262px;
+        }
+
+        .stage .main i.clicked {
+            background-image: url("./钢琴大师img/playing.png");
+            background-size: 35%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .stage .over {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            color: red;
+            font-size: 36px;
+            line-height: 640px;
+            background-color: rgba(255, 0, 0, 0.4);
+            display: none;
+        }
+
+        .stage span {
+            display: block;
+            width: 100%;
+            height: 36px;
+            color: red;
+            font-size: 28px;
+            line-height: 36px;
+            position: relative;
+            pointer-events: none;
+        }
+
+        .stage span .sco {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 36px;
+            top: 0;
+            justify-content: center;
+        }
+
+        .stage span i {
+            display: block;
+            width: 29px;
+            height: 36px;
+            box-sizing: border-box;
+            background-image: url('./钢琴大师img/bd46b88b-305d-4c09-a696-e5d01bbc9564.png');
+            background-size: 288px 36px;
+            background-repeat: no-repeat;
+        }
+
+        .num0 {
+            background-position-x: 0;
+        }
+
+        .num1 {
+            background-position-x: -29px;
+        }
+
+        .num2 {
+            background-position-x: -58px;
+        }
+
+        .num3 {
+            background-position-x: -87px;
+        }
+
+        .num4 {
+            background-position-x: -116px;
+        }
+
+        .num5 {
+            background-position-x: -145px;
+        }
+
+        .num6 {
+            background-position-x: -174px;
+        }
+
+        .num7 {
+            background-position-x: -203px;
+        }
+
+        .num8 {
+            background-position-x: -232px;
+        }
+
+        .num9 {
+            background-position-x: -261px;
+        }
+
+        .stage button:nth-of-type(1) {
+            position: absolute;
+            display: block;
+            padding: 0;
+            border: 0;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 10px;
+            bottom: 16%;
+            left: 130px;
+        }
+
+        .stage button:nth-of-type(2) {
+            position: absolute;
+            display: block;
+            padding: 0;
+            border: 0;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 10px;
+            bottom: 40%;
+            left: 130px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <section class="main"></section>
+        <section class="over">Game over</section>
+        <span class="score">得分:<div class="sco"><i class="num0"></i></div></span>
+        <button>游戏开始</button>
+        <button>重新游戏</button>
+    </div>
+    <script>
+        function startGame() {
+            var mainE = document.querySelector('.main');
+            var overE = document.querySelector('.over');;
+            var endBtn = document.querySelectorAll('button')[1];
+            var li = document.querySelector('span').querySelectorAll('i');
+            var sco = document.querySelector('.sco');
+            var music = [
+                [
+                    25, 21, 22, 23, 24, 25, 21, 21, 26, 24, 25, 26, 27, 31, 21, 21, 24, 25, 24, 23, 22, 23, 24, 23, 22, 21, 17,
+                    21, 22, 23, 21, 22, 25, 21, 22, 23, 24, 25, 21, 21, 26, 24, 25, 26, 27, 31, 21, 21, 24, 25, 24, 23, 22, 23,
+                    24, 23, 22, 21, 22, 23, 22, 21, 17, 21,
+                ],
+                [
+                    23, 22, 21, 17, 16, 15, 16, 17, 21, 17, 16, 15, 14, 13, 14, 12, 21, 17, 21, 11, 7, 15, 12, 13, 11, 21, 17, 16,
+                    17, 23, 25, 26, 24, 23, 22, 24, 24, 23, 21, 17, 16, 15, 14, 13, 12, 14, 13, 12, 11, 12, 13, 14, 15, 12, 15,
+                    14, 13, 16, 15, 14, 15, 14, 13, 12, 11, 6, 16, 17, 21, 17, 16, 15, 14, 13, 12, 16, 15, 16, 15, 14, 13, 23, 22,
+                    21, 22, 21, 23, 22, 24, 25, 23, 24, 25, 23, 24, 25, 15, 16, 17, 21, 22, 23, 24, 23, 21, 22, 23, 13, 14, 15,
+                    16, 15, 14, 15, 13, 14, 15, 14, 16, 15, 14, 13, 12, 13, 12, 11, 12, 13, 14, 15, 16, 14, 16, 15, 16, 17, 21,
+                    15, 16, 17, 21, 22, 23, 24, 25, 23, 21, 22, 23, 22, 21, 22, 17, 21, 22, 23, 22, 21, 17, 21, 16, 17, 21, 11,
+                    12, 13, 14, 13, 12, 13, 21, 17, 21, 16, 21, 17, 16, 15, 14, 15, 14, 13, 14, 15, 16, 17, 11, 16, 21, 17, 21,
+                    17, 16, 17, 21, 22, 21, 17, 21, 16, 17, 23, 13, 14, 13, 12, 22, 23, 22, 21, 13, 11, 16, 15, 5, 4, 5, 6, 16,
+                    17, 16, 17, 5, 4, 5, 6, 16, 15, 16, 17, 17, 16, 17, 11, 21, 22, 21, 17, 7, 11, 7, 6, 16, 15, 16, 17, 7, 13,
+                    12, 11, 21, 22, 24, 23, 13, 15, 23, 21, 24, 23, 24, 22, 15, 14, 15, 13, 21, 17, 21, 13, 15, 15, 16, 17, 15,
+                    13, 21, 22, 23, 21, 23, 23, 22, 21, 17, 16, 16, 15, 16, 17, 21, 23, 22, 21, 23,
+                ],
+            ];
+            var nodes = [];
+            var redDots = [];
+            var timer = null;
+            var timerr = null;
+            var timerrr = null;
+            var speed = 0.02;
+            var num = 0;
+            var music_score = music[Math.floor(Math.random() * music.length)];
+            mainE.onclick = endClick;
+            // var END = endClick;
+            function endClick() {
+                var kuai = document.createElement('span');
+                kuai.classList.add('kuai');
+                var newChlid = [];
+                // console.log(event.offsetX, event.offsetY);
+                // console.log(mainE.children[0].offsetTop + 90);
+                var allC = Array.prototype.slice.call(mainE.children);
+                allC.forEach(function (e) {
+                    if (e.classList == '') {
+                        newChlid.push(e);
+                    }
+                })
+                newChlid.forEach(function (e) {
+                    if (event.offsetY <= e.offsetTop + 90) {
+                        kuai.style.top = e.offsetTop + 'px';
+                    } else if (event.offsetY > newChlid[0].offsetTop + 90) {
+                        var y = Math.floor((event.offsetY - (newChlid[0].offsetTop + 90)) / 90);
+                        kuai.style.top = (newChlid[0].offsetTop + 90 + y * 90) + 'px';
+                    }
+                    var x = Math.floor(event.offsetX / 90);
+                    kuai.style.left = x * 90 + 'px';
+                    mainE.appendChild(kuai);
+                })
+
+                var mis = document.createElement("audio");
+                mis.src = "./music/sound_1.mp3";
+                mis.play();
+                clearInterval(timer);
+                timerr = setInterval(function () {
+                    if (kuai.style.opacity !== '0') {
+                        kuai.style.opacity = '0';
+                    } else {
+                        kuai.style.opacity = '0.4';
+                    }
+                }, 150)
+                setTimeout(function () {
+                    overE.style.display = 'block';
+                    endBtn.style.display = 'block';
+                    kuai.style.opacity = '0';
+                    clearInterval(timerr);
+                    mainE.onclick = endClick;
+                }, 2000)
+
+                endBtn.onclick = eBtn;
+                mainE.onclick = null;
+                nodes.filter(function (e) { return !e.done; })[0].node.onclick = null;
+            }
+
+            function eBtn() {
+                mainE.innerHTML = '';
+                nodes = [];
+                startGame();
+                overE.style.display = 'none';
+                this.style.display = 'none';
+                sco.innerHTML = '<i class="num0"></i>';
+            }
+
+            function Dot(y) {
+                this.x = Math.floor(Math.random() * 4);
+                this.y = y;
+                this.node = document.createElement('i');
+                this.updateShow();
+                mainE.appendChild(this.node);
+                this.node.onclick = () => {
+                    var first = nodes.filter(function (e) {
+                        return !e.done;
+                    })[0].node;
+                    if (first === this.node) {
+                        var mis = document.createElement("audio");
+                        mis.src = "./music/sound_" + this.music + ".mp3";
+                        mis.play();
+                        num++;
+                        if (num % 5 === 0) {
+                            speed += 0.002;
+                        }
+                        this.node.classList.add('clicked');
+                        this.done = true;
+                        sco.innerHTML = '';
+                        String(num).split('').forEach(function (n) {
+                            var node = document.createElement("i");
+                            node.classList.add("num");
+                            node.classList.add("num" + n);
+                            sco.appendChild(node);
+                        });
+                    }
+                    event.stopPropagation();
+                }
+            }
+            Dot.prototype.move = function () {
+                this.y += speed;
+            }
+            Dot.prototype.updateShow = function () {
+                this.node.style.left = this.x * 90 + 'px';
+                this.node.style.top = this.y * 90 + 'px';
+            }
+            for (let i = 5; i >= 0; i--) {
+                var dot = new Dot(i - 1);
+                var tmp = music_score.shift();
+                music_score.push(tmp);
+                dot.music = tmp;
+                nodes.push(dot);
+            }
+
+            timer = setInterval(() => {
+                nodes.forEach(e => {
+                    e.move();
+                    e.updateShow();
+                })
+                redDots.forEach(e => {
+                    e.node.onclick = function () {
+                        clearInterval(timer);
+                        var mis = document.createElement("audio");
+                        mis.src = "./music/sound_1.mp3";
+                        mis.play();
+                        timerrr = setInterval(function () {
+                            if (e.node.style.opacity !== '0') {
+                                e.node.style.opacity = '0';
+                            } else {
+                                e.node.style.opacity = '0.4';
+                            }
+                        }, 150)
+                        setTimeout(function () {
+                            overE.style.display = 'block';
+                            endBtn.style.display = 'block';
+                            e.node.style.opacity = '0';
+                            clearInterval(timerrr);
+                            endBtn.onclick = eBtn;
+                        }, 2000)
+                        event.stopPropagation();
+                    }
+                    e.move();
+                    e.updateShow();
+                })
+                // console.log(redDots);
+                if (nodes[nodes.length - 1].y >= 0) {
+                    var rNum1 = Math.round(Math.random() * 5);
+                    var rNum2 = Math.round(Math.random() * 5);
+                    // console.log(rNum1, rNum2);
+                    var dot = new Dot(-1);
+                    var fx = Math.floor(Math.random() * 4);
+                    if (fx !== dot.x && rNum1 === rNum2) {
+                        var redDot = new Dot(-1);
+                        redDot.x = fx;
+                        redDot.node.classList.add('fDot');
+                        redDots.push(redDot);
+                    }
+                    var tmp = music_score.shift();
+                    music_score.push(tmp);
+                    dot.music = tmp;
+                    nodes.push(dot);
+                }
+                var firstUnClicked = nodes.filter(function (e) {
+                    return !e.done;
+                })[0];
+                if (firstUnClicked && (firstUnClicked.y + 1) * 90 >= 640) {
+                    var mis = document.createElement("audio");
+                    mis.src = "./music/sound_1.mp3";
+                    mis.play();
+                    clearInterval(timer);
+                    overE.style.display = 'block';
+                    endBtn.style.display = 'block';
+                    endBtn.onclick = eBtn;
+                }
+                var firstClicked = nodes.filter(function (e) {
+                    return e.done;
+                })[0];
+                if (firstClicked && firstClicked.y * 90 > 640) {
+                    mainE.removeChild(firstClicked.node);
+                    nodes.splice(nodes.indexOf(firstClicked), 1);
+                }
+                if ((redDots[0] && redDots[0].y * 90) > 640) {
+                    mainE.removeChild(redDots[0].node);
+                    redDots.splice(redDots.indexOf(redDots[0]), 1);
+                }
+            }, 20)
+        }
+        var startBtn = document.querySelectorAll('button')[0];
+        startBtn.onclick = function () {
+            startGame();
+            this.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

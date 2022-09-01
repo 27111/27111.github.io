@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /* font-size: 0; */
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            perspective: 500px;
+            background-color: rgba(0, 0, 0, 0.4);
+            transform-style: preserve-3d;
+        }
+
+        .box {
+            margin: auto;
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 24px 0px rgb(0 0 0 / 20%);
+            position: relative;
+            transform-style: preserve-3d;
+            display: flex;
+            /* transform-origin: center 100% 80px; */
+        }
+
+        .box .pic {
+            width: 100%;
+            height: 100%;
+            background-image: url("./img/600x600.jpg");
+            background-position: top center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .box .pic::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .2);
+            border-radius: 10px;
+            transition: all .5s;
+        }
+
+        .box:hover .pic::after {
+            box-shadow: 0 0 36px 0px rgb(0 0 0 / 60%);
+            background-color: rgba(0, 50, 100, 0.8);
+        }
+
+        .box h2 {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin: 20px 0 0 0;
+            transform: translateX(-50%) translateZ(2px);
+            color: white;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 300;
+        }
+
+        .box p {
+            margin: 0px 0 30px 0;
+            font-size: 16px;
+            transform: translateX(-50%) translateZ(2px);
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            font-weight: 300;
+            line-height: 30px;
+            color: white;
+        }
+
+        .box h3 {
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%) translateZ(2px);
+            color: white;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 300;
+        }
+
+        .box:hover h3 {
+            animation: h .5s forwards ease-in-out;
+        }
+
+        @keyframes h {
+            0% {
+                top: 180px;
+                transform: translateX(-50%) translateZ(20px);
+            }
+
+            50% {
+                transform: translateX(-50%) translateZ(2px);
+            }
+
+            100% {
+                top: 250px;
+                transform: translateX(-50%) translateZ(20px);
+            }
+        }
+
+        .box:hover {
+            animation: qinxie .5s forwards ease-in-out;
+        }
+
+        .box:hover h2 {
+            animation: wenzi1 .5s forwards ease-in-out .1s;
+        }
+
+        .box:hover p {
+            animation: wenzi2 .5s forwards ease-in-out .1s;
+        }
+
+        /* .box.click1 {
+            animation: qinxie 1.5s forwards;
+        }
+
+        .box h2.click2 {
+            animation: wenzi1 1.5s forwards;
+        }
+
+        .box p.click3 {
+            animation: wenzi2 1.5s forwards;
+        } */
+
+        @keyframes qinxie {
+            0% {
+                transform: rotateX(0);
+            }
+
+            100% {
+                transform: rotateX(60deg);
+            }
+        }
+
+        @keyframes wenzi1 {
+            0% {
+                transform: translateX(-50%) translateZ(2px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-50%) translateZ(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes wenzi2 {
+            0% {
+                transform: translateX(-50%) translateZ(2px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-50%) translateZ(80px);
+                opacity: 0;
+            }
+        }
+
+        .box .wrap {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+
+        .box:hover .wrap {
+            animation: weiyi 0.5s forwards ease-in-out;
+        }
+
+        @keyframes weiyi {
+            0% {
+                top: 60px;
+            }
+
+            100% {
+                top: 90px;
+            }
+        }
+
+        .box .wrap div[class^="zhuzi"] {
+            transform-style: preserve-3d;
+            position: relative;
+            width: 15px;
+            background-color: #ffffff;
+            margin: 0 8px;
+            /* height: 100px;
+            transform: translateZ(-50px) rotateX(-90deg) rotateY(-60deg); */
+            font-size: 0;
+        }
+
+        .box .wrap div[class="zhuzi1"] {
+            height: 150px;
+            transform: translateZ(-75px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class="zhuzi2"] {
+            height: 75px;
+            transform: translateZ(-37.5px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class="zhuzi3"] {
+            height: 112px;
+            transform: translateZ(-56px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class="zhuzi4"] {
+            height: 180px;
+            transform: translateZ(-90px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class="zhuzi5"] {
+            height: 52px;
+            transform: translateZ(-26px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class="zhuzi6"] {
+            height: 52px;
+            transform: translateZ(-26px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class="zhuzi7"] {
+            height: 75px;
+            transform: translateZ(-37.5px) rotateX(-90deg) rotateY(-45deg);
+        }
+
+        .box .wrap div[class^="zhuzi"] div[class^="qian"] {
+            display: block;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: -8px;
+            background-color: #ffffff;
+            transform: translateZ(-7.5px) rotateX(90deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box .wrap div[class^="zhuzi"] div[class^="hou"] {
+            display: block;
+            position: absolute;
+            /* top: 0;
+            left: 0; */
+            right: -7.5px;
+            width: 100%;
+            height: 100%;
+            background-color: #5d5b5b;
+            transform: translateZ(-7.5px) rotateY(90deg);
+        }
+
+        /* .box:hover .wrap div[class^="zhuzi"] {
+            animation: xxx .5s forwards ease-in-out;
+        } */
+        .box:hover .wrap div[class="zhuzi1"] {
+            animation: xxx1 .5s .3s forwards ease-in-out;
+        }
+
+        .box:hover .wrap div[class="zhuzi2"] {
+            animation: xxx2 .5s .2s forwards ease-in-out;
+        }
+
+        .box:hover .wrap div[class="zhuzi3"] {
+            animation: xxx3 .5s .1s forwards ease-in-out;
+        }
+
+        .box:hover .wrap div[class="zhuzi4"] {
+            animation: xxx4 .5s forwards ease-in-out;
+        }
+
+        .box:hover .wrap div[class="zhuzi5"] {
+            animation: xxx5 .5s .3s forwards ease-in-out;
+        }
+
+        .box:hover .wrap div[class="zhuzi6"] {
+            animation: xxx6 .5s .2s forwards ease-in-out;
+        }
+
+        .box:hover .wrap div[class="zhuzi7"] {
+            animation: xxx7 .5s .1s forwards ease-in-out;
+        }
+
+        /* @keyframes xxx {
+            0% {
+                font-size: 0;
+                transform: translateZ(-50px) rotateX(-90deg) rotateY(-60deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(50px) rotateX(-90deg) rotateY(-30deg);
+            }
+        } */
+        @keyframes xxx1 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-75px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(75px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        @keyframes xxx2 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-37.5px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(37.5px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        @keyframes xxx3 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-56px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(56px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        @keyframes xxx4 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-90px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(90px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        @keyframes xxx5 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-26px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(26px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        @keyframes xxx6 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-26px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(26px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        @keyframes xxx7 {
+            0% {
+                font-size: 0;
+                transform: translateZ(-37.5px) rotateX(-90deg) rotateY(-45deg);
+            }
+
+            100% {
+                font-size: 12px;
+                transform: translateZ(37.5px) rotateX(-90deg) rotateY(-30deg);
+            }
+        }
+
+        .box .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transform: translateZ(-16px);
+            background-color: #000;
+            transition: all .5s;
+        }
+
+        .box:hover .mask {
+            box-shadow: 0 0 36px 0px rgb(0 0 0 / 60%);
+        }
+
+        .box .wrap span {
+            transform-origin: left top;
+            display: block;
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            transform: rotateZ(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="pic"></div>
+        <h2>STEPS</h2>
+        <p>THIS WEEK</p>
+        <div class="wrap">
+            <div class="zhuzi1">
+                <span>20,000</span>
+                <div class="qian1">M</div>
+                <div class="hou1"></div>
+            </div>
+            <div class="zhuzi2">
+                <span>10,000</span>
+                <div class="qian2">T</div>
+                <div class="hou2"></div>
+            </div>
+            <div class="zhuzi3">
+                <span>15,000</span>
+                <div class="qian3">W</div>
+                <div class="hou3"></div>
+            </div>
+            <div class="zhuzi4">
+                <span>24,000</span>
+                <div class="qian4">T</div>
+                <div class="hou4"></div>
+            </div>
+            <div class="zhuzi5">
+                <span>7,000</span>
+                <div class="qian5">F</div>
+                <div class="hou5"></div>
+            </div>
+            <div class="zhuzi6">
+                <span>7,000</span>
+                <div class="qian6">S</div>
+                <div class="hou6"></div>
+            </div>
+            <div class="zhuzi7">
+                <span>10,000</span>
+                <div class="qian7">S</div>
+                <div class="hou7"></div>
+            </div>
+        </div>
+        <h3>93,000</h3>
+        <div class="mask"></div>
+    </div>
+    <script>
+        document.querySelector(".box").onclick = function () {
+            /* if (this.classList.contains("click1") && document.querySelector("h2").classList.contains("click2") && document.querySelector("p").classList.contains("click3")) {
+                this.classList.remove("click1")
+                document.querySelector("h2").classList.remove("click2");
+                document.querySelector("p").classList.remove("click3");
+            } else {
+                this.classList.add("click1")
+                document.querySelector("h2").classList.add("click2");
+                document.querySelector("p").classList.add("click3");
+            } */
+        }
+    </script>
+</body>
+
+</html>

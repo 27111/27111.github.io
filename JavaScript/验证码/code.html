@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .code_show {
+        display: flex;
+    }
+
+    #checkCode {
+        display: block;
+        width: 120px;
+        height: 30px;
+        border: 1px solid;
+        padding: 0 20px;
+        letter-spacing: 10px;
+        line-height: 30px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="v_code">
+        <div class="code_show">
+            <span class="code" id="checkCode">aaasss</span>
+            <a href="javaScript:;">看不清换一张</a>
+        </div>
+        <div class="input_code">
+            <label for="inputCode">验证码: </label>
+            <input type="text" id="inputCode">
+            <span id="text_show"></span>
+        </div>
+        <input type="button" value="确定" id="Button1">
+    </div>
+    <script>
+        /* var yz_code = document.querySelector('#checkCode');
+        var link = document.querySelector('a');
+        var inputCode = document.querySelector('#inputCode');
+        var qd = document.querySelector('#Button1');
+        function showCode() {
+            var code = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z', 'w']
+            var str = '';
+            for (var i = 0; i < 6; i++) {
+                var num = Math.round(Math.random() * 34);
+                str += code[num];
+            }
+            yz_code.innerText = str;
+            qd.onclick = function () {
+                if (!inputCode.value) {
+                    alert('验证码不能为空')
+                } else {
+                    if (inputCode.value !== yz_code.innerText) {
+                        alert('您输入的验证码不正确,请重新输入')
+                        inputCode.value = '';
+                    } else {
+                        alert('输入正确');
+                    }
+                }
+            }
+        }
+        showCode();
+        link.onclick = function () {
+            showCode();
+        } */
+
+
+
+
+        window.onload = function () {
+            var res = showCode();
+            function showCode() {
+                var code = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z', 'w']
+                var str = '';
+                for (var i = 0; i < 6; i++) {
+                    var num = Math.round(Math.random() * 34);
+                    str += code[num];
+                }
+                return str;
+            }
+            document.querySelector('#checkCode').innerText = res;
+            document.querySelector('a').onclick = function () {
+                document.querySelector('#checkCode').innerText = showCode();
+            }
+            document.querySelector('#Button1').onclick = function () {
+                if (!inputCode.value) {
+                    alert('验证码不能为空')
+                } else {
+                    if (inputCode.value !== document.querySelector('#checkCode').innerText) {
+                        alert('您输入的验证码不正确,请重新输入');
+                        inputCode.value = '';
+                        return false;
+                    } else {
+                        alert('输入正确');
+                        inputCode.value = '';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
