@@ -100,12 +100,12 @@
                     <div class="beijing"></div>
                     <div class="cont">
                         <h1>
-                            <span>我</span>
-                            <span>的</span>
+                            <span>个</span>
+                            <span>人</span>
                             <span>简</span>
                             <span>历</span>
                         </h1>
-                        <h3>I'm a <span>developer</span>.</h3>
+                        <h3 class="words">我<span>是阿绵,一名快要秃顶的程序猿!</span><span>|</span></h3>
                         <button class="btn1">冲冲冲!!!
                             <span></span>
                             <span></span>
@@ -175,7 +175,7 @@
                 clickable: true,
             },
         });
-        // swiper.allowTouchMove = false; // 禁止拖动
+        swiper.allowTouchMove = false; // 禁止拖动
     </script>
     <script>
         $(".canvas").on("click", function () {
@@ -198,6 +198,10 @@
         // $(".menu_nav li").eq(2).on("click", function () {
         //     location.href = './360极速浏览器/浏览器.html';
         // })
+
+
+
+
         var zuopinArr = [
             {
                 id: "Css&Html",
@@ -256,12 +260,15 @@
         //     var li = $("<li></li>");
         //     $(".zuopin").append(li);
         // })
+
+        //  点击动态生成作品集合
         $(".menu_nav li").each(function (j, el) {
             $(el).on("click", function () {
                 $(".zuopin").html("");
+                //  遍历数组,根据id判断生成对应作品
                 $.each(zuopinArr, (i, e) => {
                     if ($(this).data("id") === e.id || $(this).data("id") === "all") {
-                        var li = $("<li><img src='" + e.picture + "''><p>" + e.describe + "</p></li>");
+                        var li = $("<li><img src='" + e.picture + "''><p>" + e.describe + "</p><i class='fa fa-search-plus'></i></li>");
                         $(".zuopin").append(li);
                         $(li).click(() => {
                             location.href = e.path;
@@ -271,6 +278,35 @@
             })
         })
         $(".menu_nav li").eq(0).click();
+
+
+
+
+        var dazijiStr = "是阿绵,一名快要秃顶的程序猿!"
+        //  打字机效果
+        function setText(t) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    $(".words span").eq(0).html(t);
+                    resolve();
+                }, 150)
+            })
+        }
+        async function main(flag) {
+            if (flag) {
+                for (let i = 1; i <= dazijiStr.length; i++) {
+                    await setText(dazijiStr.substring(0, i));
+                }
+            } else {
+                for (let i = dazijiStr.length; i >= 0; i--) {
+                    await setText(dazijiStr.substring(0, i));
+                }
+            }
+            setTimeout(() => {
+                main(!flag);
+            }, 1000)
+        }
+        main(1);
     </script>
 </body>
 
