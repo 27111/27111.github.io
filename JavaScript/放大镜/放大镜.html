@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            font-size: 0;
+        }
+
+        .wrap {
+            position: relative;
+        }
+
+        .wrap .small {
+            width: 225px;
+            height: 150px;
+            position: relative;
+        }
+
+        .wrap .small img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap .small .mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 33.33%;
+            height: 33.33%;
+            background-color: rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            display: none;
+        }
+
+        .wrap .big {
+            position: absolute;
+            top: 0;
+            left: 245px;
+            width: 225px;
+            height: 150px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .wrap .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300%;
+            height: 300%;
+        }
+
+        .wrap ul.pic {
+            width: 225px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .wrap ul.pic li {
+            width: 50px;
+            height: 50px;
+            background-color: aquamarine;
+            /* background-image: url(); */
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="small">
+            <img src="./img/R-C.jpg">
+            <div class="mark"></div>
+        </div>
+        <div class="big">
+            <img src="./img/R-C.jpg">
+        </div>
+        <ul class="pic"></ul>
+    </div>
+    <script>
+        $(function () {
+            // var level = 3;
+            // console.log($(".mark").width());
+            // console.log($(".mark").height());
+            var picarr = ["./img/1.jpg", "./img/2.jpg", "./img/R-C.jpg", "./img/true.jpg"]
+            $.each(picarr, function (i, e) {
+                var li = $("<li></li>");
+                $(li).data("id", i).css({
+                    backgroundImage: "url(" + e + ")"
+                })
+                $(".pic").append(li);
+                // console.log($(li).data("id"));
+                $(li).on("click", function () {
+                    document.querySelectorAll("img")[0].src = e;
+                    document.querySelectorAll("img")[1].src = e;
+                })
+            })
+            $(".small").mousemove(function () {
+                mouseX = event.pageX - $(".small").offset().left;
+                mouseY = event.pageY - $(".small").offset().top;
+                // console.log(mouseX, mouseY);
+                markX = mouseX - ($(".mark").width() / 2).toFixed(1);
+                markY = mouseY - ($(".mark").height() / 2).toFixed(1);
+                // console.log(markX,markY);
+                if (markX >= $(".small").width() - $(".mark").width()) {
+                    markX = $(".small").width() - $(".mark").width();
+                } else if (markX <= 0) {
+                    markX = 0;
+                }
+                if (markY >= $(".small").height() - $(".mark").height()) {
+                    markY = $(".small").height() - $(".mark").height();
+                } else if (markY <= 0) {
+                    markY = 0;
+                }
+                $(".mark").offset({
+                    left: markX,
+                    top: markY
+                })
+                // console.log($(".big").width() / $(".mark").width());
+                // console.log(markX);
+                $(".big img").css({
+                    left: -($(".big").width() / $(".mark").width()) * markX,
+                    top: -($(".big").height() / $(".mark").height()) * markY
+                })
+            })
+            $(".small").hover(function(){
+                $(".mark").show();
+                $(".big").show();
+            },function(){
+                $(".mark").hide();
+                $(".big").hide();
+            });
+        })
+    </script>
+</body>
+
+</html>
