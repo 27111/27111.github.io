@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 ul,
+ol,
 h1,
 h2,
 h3,
@@ -434,5 +435,75 @@ body .wrap3 {
   width: 100%;
   height: 100%;
   background-color: #ffff6d80;
+}
+body .wrap3 .rowper {
+  position: relative;
+  width: 285rem;
+  height: calc(100% - 12.5rem);
+  margin: 0 auto;
+  top: 12.5rem;
+}
+body .wrap3 .rowper .title {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+body .wrap3 .rowper .title h2 {
+  font-size: 7.5rem;
+  letter-spacing: 2.5rem;
+  color: #FFB90F;
+  font-weight: bold;
+}
+body .wrap3 .rowper .menu_nav {
+  display: flex;
+  justify-content: space-around;
+}
+body .wrap3 .rowper .menu_nav li {
+  display: inline-block;
+  cursor: pointer;
+  padding: 2.5rem;
+  background-color: #ffff6d;
+  border-radius: 10rem;
+  font-weight: bold;
+  box-shadow: inset -1rem -1rem 1rem rgba(17, 17, 17, 0.3), 1rem 1rem 1rem rgba(17, 17, 17, 0.3);
+  color: #FFB90F;
+  text-shadow: 0 0 0.25rem #FF4500;
+}
+body .wrap3 .rowper .zuopin {
+  width: 100%;
+  height: 85%;
+  overflow: scroll;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+body .wrap3 .rowper .zuopin li {
+  width: 33%;
+  height: 50rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  position: relative;
+  animation: bianhua 0.5s forwards;
+}
+@keyframes bianhua {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+body .wrap3 .rowper .zuopin li img {
+  width: 100%;
+  height: 100%;
+}
+body .wrap3 .rowper .zuopin li p {
+  position: absolute;
+  width: 100%;
+  font-size: 5rem;
+  color: #FF4500;
+  left: 0;
+  bottom: 0;
 }
 /*# sourceMappingURL=./index.css.map */
