@@ -415,17 +415,22 @@ body .wrap3 .rowper .menu_nav li {
   color: #FFB90F;
   text-shadow: 0 0 0.25rem #FF4500;
 }
-body .wrap3 .rowper .zuopin {
+body .wrap3 .rowper .conn {
   width: 100%;
   height: 85%;
-  overflow: scroll;
   margin-top: 5rem;
+  overflow: hidden;
+}
+body .wrap3 .rowper .conn .zuopin {
+  width: calc(100% + 17px);
+  height: 95%;
+  overflow-y: scroll;
   display: flex;
   justify-content: space-around;
   align-content: flex-start;
   flex-wrap: wrap;
 }
-body .wrap3 .rowper .zuopin li {
+body .wrap3 .rowper .conn .zuopin li {
   width: 33%;
   height: 50rem;
   margin: 0.5rem 0;
@@ -441,11 +446,11 @@ body .wrap3 .rowper .zuopin li {
     transform: scale(1);
   }
 }
-body .wrap3 .rowper .zuopin li img {
+body .wrap3 .rowper .conn .zuopin li img {
   width: 100%;
   height: 100%;
 }
-body .wrap3 .rowper .zuopin li p {
+body .wrap3 .rowper .conn .zuopin li p {
   position: absolute;
   width: 100%;
   font-size: 5rem;
@@ -453,7 +458,7 @@ body .wrap3 .rowper .zuopin li p {
   left: 0;
   bottom: 0;
 }
-body .wrap3 .rowper .zuopin li i {
+body .wrap3 .rowper .conn .zuopin li i {
   display: block;
   position: absolute;
   top: 0;
@@ -470,7 +475,7 @@ body .wrap3 .rowper .zuopin li i {
   opacity: 0;
   transition: all 0.5s;
 }
-body .wrap3 .rowper .zuopin li::after {
+body .wrap3 .rowper .conn .zuopin li::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -482,11 +487,11 @@ body .wrap3 .rowper .zuopin li::after {
   opacity: 0;
   transition: all 0.5s;
 }
-body .wrap3 .rowper .zuopin li:hover i {
+body .wrap3 .rowper .conn .zuopin li:hover i {
   visibility: visible;
   opacity: 1;
 }
-body .wrap3 .rowper .zuopin li:hover::after {
+body .wrap3 .rowper .conn .zuopin li:hover::after {
   visibility: visible;
   opacity: 1;
 }
