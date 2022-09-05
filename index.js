@@ -50,7 +50,7 @@ $(function () {
         },
         {
             id: "Css&Html",
-            path: "./c3、h5/loading.html",
+            path: "./c3、h5/loading效果/loading.html",
             picture: "./img/loading效果.png",
             describe: "loading效果",
         },
@@ -67,9 +67,10 @@ $(function () {
             describe: "PC端音乐播放器"
         },
         {
-            id: "bootStrap",
-            path: "./360极速浏览器/浏览器.html",
-            picture: "./img/皮卡丘.png",
+            id: "Css&Html",
+            path: "./c3、h5/雷达效果.html",
+            picture: "./img/雷达.png",
+            describe: "雷达扫描",
         },
         {
             id: "bootStrap",
@@ -89,11 +90,11 @@ $(function () {
             //  遍历数组,根据id判断生成对应作品
             $.each(zuopinArr, (i, e) => {
                 if ($(this).data("id") === e.id || $(this).data("id") === "all") {
-                    var li = $("<li><img src='" + e.picture + "''><p>" + e.describe + "</p><i class='fa fa-search-plus'></i></li>");
+                    var li = $("<li><a href='" + e.path + "' target='_blank'></a><img src='" + e.picture + "''><p>" + e.describe + "</p><i class='fa fa-search-plus'></i></li>");
                     $(".zuopin").append(li);
-                    $(li).click(() => {
-                        location.href = e.path;
-                    })
+                    // $(li).click(() => {
+                    //     location.href = e.path;
+                    // })
                 }
             })
         })
@@ -108,7 +109,7 @@ $(function () {
     function setText(t) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                $(".words span").eq(0).html(t);
+                $(".words span").eq(1).html(t);
                 resolve();
             }, 150)
         })

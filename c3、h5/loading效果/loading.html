@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap1 {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(200deg, #b5aee4, #505285);
+        }
+
+        .wrap1 .loading {
+            width: 86px;
+            height: 196px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            animation: rotating 2s linear infinite;
+        }
+
+        @keyframes rotating {
+
+            0%,
+            90% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+
+        .wrap1 .loading::after {
+            content: "";
+            width: 5px;
+            height: 96px;
+            background-color: #cabbe9;
+            position: absolute;
+            top: 20px;
+            animation: flow 2s linear infinite;
+        }
+
+        @keyframes flow {
+
+            10%,
+            100% {
+                transform: translateY(64px);
+            }
+        }
+
+        /* 沙漏容器 */
+        .wrap1 .top,
+        .wrap1 .bottom {
+            width: 70px;
+            height: 72px;
+            border-style: solid;
+            border-color: #dcdcdc;
+            border-width: 4px 4px 12px 12px;
+            border-radius: 50% 100% 50% 30%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wrap1 .top {
+            transform: rotate(-45deg);
+        }
+
+        .wrap1 .bottom {
+            transform: rotate(135deg);
+        }
+
+        .wrap1 .top::before,
+        .wrap1 .bottom::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #cabbe9;
+            animation: 2s linear infinite;
+        }
+
+        .wrap1.top::before {
+            /* 通过设置圆角改变沙的形状 */
+            border-radius: 0 100% 0 0;
+            animation-name: drop-sand;
+        }
+
+        @keyframes drop-sand {
+            to {
+                transform: translate(-50px, 50px);
+            }
+        }
+
+        .wrap1 .bottom::before {
+            /* 通过设置圆角改变沙的形状 */
+            border-radius: 0 0 0 25%;
+            animation-name: fill-sand;
+            /* 把下面的沙移出视线 */
+            transform: translate(50px, -50px);
+        }
+
+        @keyframes fill-sand {
+            to {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+    <div class="wrap1">
+        <div class="loading">
+            <span class="top"></span>
+            <span class="bottom"></span>
+        </div>
+    </div>
+    <style>
+        body .wrap2 {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .wrap2 .container {
+            position: absolute;
+            top: 150px;
+        }
+
+        .wrap2 .loading {
+            animation: rotate 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        .wrap2 .loading span {
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+            background-color: #ff8f92;
+            border: 1px solid #ff8f92;
+            border-radius: 50%;
+        }
+
+        .wrap2 .loading span:nth-of-type(1) {
+            transform: translate(-28px, -28px);
+            animation: animate1 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 左边圆形动画 */
+        @keyframes animate1 {
+            60% {
+                transform: scale(.4);
+            }
+        }
+
+        .wrap2 .loading span:nth-of-type(2) {
+            transform: translate(28px, -28px);
+            animation: animate2 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 右边圆形动画 */
+        @keyframes animate2 {
+            40% {
+                transform: scale(.4);
+            }
+        }
+
+        .wrap2 .loading span:nth-of-type(3) {
+            position: relative;
+            border-radius: 0;
+            transform: scale(.98) rotate(-45deg);
+            animation: animate3 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 心形中间部分动画 */
+        @keyframes animate3 {
+            50% {
+                border-radius: 100%;
+                transform: scale(.5) rotate(-45deg);
+            }
+
+            100% {
+                transform: scale(.98) rotate(-45deg);
+            }
+        }
+
+        .wrap2 .shadow {
+            position: relative;
+            width: 100px;
+            height: 20px;
+            background-color: #d9d9d9;
+            border-radius: 50%;
+            top: 50px;
+            animation: shadow 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 心形旋转动画 */
+        @keyframes rotate {
+            50% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+
+        /* 阴影动画 */
+        @keyframes shadow {
+            50% {
+                background-color: #f2f2f2;
+                transform: scale(.5);
+            }
+        }
+    </style>
+    <div class="wrap2">
+        <div class="container">
+            <div class="loading">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="shadow"></div>
+        </div>
+    </div>
+
+    <style>
+
+        .wrap3 .con {
+            width: 100vw;
+            height: 400px;
+            background-color: #240229;
+            display: flex;
+            box-sizing: border-box;
+        }
+
+        .wrap3 .con .load {
+            width: 100px;
+            height: 100px;
+            /* background-color: red; */
+            border-radius: 50%;
+            margin: auto;
+            position: relative;
+            animation: xuan .5s linear infinite;
+            background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+        }
+
+        .wrap3 .con .load::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 80%;
+            box-sizing: border-box;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: #240229;
+        }
+
+        @keyframes xuan {
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+
+        .wrap3 .con .load span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+        }
+
+        .wrap3 .con .load span:nth-child(1) {
+            filter: blur(5px);
+        }
+        .wrap3 .con .load span:nth-child(2) {
+            filter: blur(10px);
+        }
+        .wrap3 .con .load span:nth-child(3) {
+            filter: blur(25px);
+        }
+        .wrap3 .con .load span:nth-child(4) {
+            filter: blur(45px);
+        }
+    </style>
+    <div class="wrap3">
+        <div class="con">
+            <div class="load">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

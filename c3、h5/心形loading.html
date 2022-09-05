@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: absolute;
+            top: 40vh;
+        }
+
+        .loading {
+            animation: rotate 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        .loading span {
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+            background-color: #ff8f92;
+            border: 1px solid #ff8f92;
+            border-radius: 50%;
+        }
+
+        .loading span:nth-of-type(1) {
+            transform: translate(-28px, -28px);
+            animation: animate1 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 左边圆形动画 */
+        @keyframes animate1 {
+            60% {
+                transform: scale(.4);
+            }
+        }
+
+        .loading span:nth-of-type(2) {
+            transform: translate(28px, -28px);
+            animation: animate2 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 右边圆形动画 */
+        @keyframes animate2 {
+            40% {
+                transform: scale(.4);
+            }
+        }
+
+        .loading span:nth-of-type(3) {
+            position: relative;
+            border-radius: 0;
+            transform: scale(.98) rotate(-45deg);
+            animation: animate3 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 心形中间部分动画 */
+        @keyframes animate3 {
+            50% {
+                border-radius: 100%;
+                transform: scale(.5) rotate(-45deg);
+            }
+            100%{
+                transform: scale(.98) rotate(-45deg);
+            }
+        }
+
+        .shadow {
+            position: relative;
+            width: 100px;
+            height: 20px;
+            background-color: #d9d9d9;
+            border-radius: 50%;
+            top: 50px;
+            animation: shadow 2.5s infinite cubic-bezier(.75, 0, .5, 1);
+        }
+
+        /* 心形旋转动画 */
+        @keyframes rotate {
+            50%{
+                transform: rotate(360deg);
+            }
+            100%{
+                transform: rotate(720deg);
+            }
+        }
+
+        /* 阴影动画 */
+        @keyframes shadow {
+            50%{
+                background-color: #f2f2f2;
+                transform: scale(.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="shadow"></div>
+    </div>
+</body>
+
+</html>

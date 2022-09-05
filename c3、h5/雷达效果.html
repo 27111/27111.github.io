@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #6b98bb, #000);
+        }
+
+        .radar {
+            width: calc(256px + 48px);
+            height: calc(256px + 48px);
+            background:
+                /* 重复径向渐变  圆圈 */
+                repeating-radial-gradient(transparent 0,
+                    transparent 30px,
+                    darkcyan 30px,
+                    darkcyan 32px),
+                /* 线性渐变  横线 */
+                linear-gradient(transparent 49.75%,
+                    darkcyan 49.75%,
+                    darkcyan 50.25%,
+                    transparent 50.25%),
+                /* 线性渐变  竖线 */
+                linear-gradient(90deg,
+                    transparent 49.75%,
+                    darkcyan 49.75%,
+                    darkcyan 50.25%,
+                    transparent 50.25%),
+                /* 背景渐变 */
+                linear-gradient(#000, #000);
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .radar::before {
+            content: "";
+            position: absolute;
+            width: calc(256px / 2);
+            height: calc(256px / 2);
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0) 50%, rgba(0, 255, 255, 1) 100%);
+            border-radius: 100% 0 0 0;
+            top: calc(48px / 2);
+            left: calc(48px / 2);
+            animation: rote 3s linear infinite;
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes rote {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div class="radar"></div>
+</body>
+
+</html>
