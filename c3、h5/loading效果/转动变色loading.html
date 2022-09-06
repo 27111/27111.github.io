@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap4 {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        .wrap4 .container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 自定义色相   -h */
+            --h: calc(var(--percent) / 100 * 360);
+            /* hsl 色相 饱和度 亮度 */
+            color: hsl(var(--h), 100%, 75%);
+            animation: changeColor 3s linear infinite;
+        }
+
+        .wrap4 .container span {
+            position: absolute;
+            --diameter: calc(50px + (var(--n) - 1) * 30px);
+            width: var(--diameter);
+            height: var(--diameter);
+            border-style: solid;
+            border-color: currentColor transparent;
+            border-width: 10px 10px 0px 0px;
+            border-radius: 50%;
+            animation: rot linear infinite;
+            animation-duration: calc(3s / (9 - var(--n) + 1));
+        }
+
+        .wrap4 .container span:nth-of-type(1) {
+            --n: 1;
+        }
+
+        .wrap4 .container span:nth-of-type(2) {
+            --n: 2;
+        }
+
+        .wrap4 .container span:nth-of-type(3) {
+            --n: 3;
+        }
+
+        .wrap4 .container span:nth-of-type(4) {
+            --n: 4;
+        }
+
+        .wrap4 .container span:nth-of-type(5) {
+            --n: 5;
+        }
+
+        .wrap4 .container span:nth-of-type(6) {
+            --n: 6;
+        }
+
+        .wrap4 .container span:nth-of-type(7) {
+            --n: 7;
+        }
+
+        .wrap4 .container span:nth-of-type(8) {
+            --n: 8;
+        }
+
+        .wrap4 .container span:nth-of-type(9) {
+            --n: 9;
+        }
+
+        @keyframes rot {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes changeColor {
+
+            0%,
+            100% {
+                --percent: 0;
+            }
+
+            10% {
+                --percent: 10;
+            }
+
+            20% {
+                --percent: 20;
+            }
+
+            30% {
+                --percent: 30;
+            }
+
+            40% {
+                --percent: 40;
+            }
+
+            50% {
+                --percent: 50;
+            }
+
+            60% {
+                --percent: 60;
+            }
+
+            70% {
+                --percent: 70;
+            }
+
+            80% {
+                --percent: 80;
+            }
+
+            90% {
+                --percent: 90;
+            }
+        }
+    </style>
+    <div class="wrap4">
+        <div class="container">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+</body>
+
+</html>

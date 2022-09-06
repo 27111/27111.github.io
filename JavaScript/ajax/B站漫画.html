@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul,
+        ol {
+            width: 1160px;
+            list-style: none;
+            padding: 0px;
+            display: flex;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            color: rgba(0, 0, 0, .34);
+            align-items: center;
+        }
+
+        ul li {
+            padding: 10px 20px;
+            color: rgba(0, 0, 0, .87);
+            cursor: pointer;
+        }
+
+        ol {
+            /* justify-content: space-between; */
+            margin-top: 25px;
+        }
+
+        ol li {
+            width: calc(16.66667% - 13.33333px);
+            margin-right: 13.333px;
+            margin-bottom: 25px;
+        }
+
+        ol li p {
+            margin-bottom: 2px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, .87);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        ol li div {
+            padding-top: 133.33333333333334%;
+            background-color: bisque;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .active {
+            color: red;
+        }
+    </style>
+    <ul class="styleId">题材</ul>
+    <ul class="areaId">地区</ul>
+    <ul class="isFinish">进度</ul>
+    <ul class="isFree">收费</ul>
+    <ul class="order">排序</ul>
+    <ol class="comics"></ol>
+    <script src="./B站漫画.js"></script>
+</body>
+
+</html>

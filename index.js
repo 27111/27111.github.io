@@ -13,7 +13,7 @@ $(function () {
         })
     })
     $(".btn1").on("click", function () {
-        $(".swiper-pagination span").eq(3).trigger("click")
+        $(".swiper-pagination span").eq(1).trigger("click")
     })
     // console.log($(".menu_nav li").eq(2));
     // $(".menu_nav li").eq(2).on("click", function () {
@@ -32,9 +32,27 @@ $(function () {
         },
         {
             id: "Css&Html",
-            path: "./c3、h5/按钮/按钮.html",
-            picture: "./img/按钮.png",
-            describe: "按钮效果",
+            path: "./c3、h5/loading效果/loading.html",
+            picture: "./img/loading效果.png",
+            describe: "loading效果",
+        },
+        {
+            id: "JS&JQ",
+            path: "./JavaScript/ajax/B站漫画.html",
+            picture: "./img/bilibili漫画.png",
+            describe: "bilibili漫画",
+        },
+        {
+            id: "Css&Html",
+            path: "./c3、h5/雷达效果.html",
+            picture: "./img/雷达.png",
+            describe: "雷达扫描",
+        },
+        {
+            id: "JS&JQ",
+            path: "./JavaScript/放大镜/放大镜.html",
+            picture: "./img/放大镜.png",
+            describe: "放大镜",
         },
         {
             id: "bootStrap",
@@ -50,9 +68,9 @@ $(function () {
         },
         {
             id: "Css&Html",
-            path: "./c3、h5/loading效果/loading.html",
-            picture: "./img/loading效果.png",
-            describe: "loading效果",
+            path: "./c3、h5/按钮/按钮.html",
+            picture: "./img/按钮.png",
+            describe: "按钮效果",
         },
         {
             id: "JS&JQ",
@@ -67,15 +85,10 @@ $(function () {
             describe: "PC端音乐播放器"
         },
         {
-            id: "Css&Html",
-            path: "./c3、h5/雷达效果.html",
-            picture: "./img/雷达.png",
-            describe: "雷达扫描",
-        },
-        {
             id: "bootStrap",
-            path: "./360极速浏览器/浏览器.html",
-            picture: "./img/皮卡丘.png",
+            path: "./bootStrap/商务公司网站/商务网站.html",
+            picture: "./img/商务公司主页.png",
+            describe: "商务网站",
         },
     ]
     // $.each(zuopinArr, function (i, e) {
