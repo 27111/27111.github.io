@@ -1,0 +1,827 @@
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+@font-face {
+  font-family: "mt";
+  src: url("https://fonts.gstatic.com/s/indieflower/v17/m8JVjfNVeKWVnh3QMuKkFcZVaUuH.woff2");
+}
+body .header {
+  padding: 16px;
+  position: absolute;
+  z-index: 9999;
+  right: 0;
+  left: 0;
+}
+body .header .wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .header .wrapper .top {
+  padding: 0 15px;
+  margin-bottom: 16px;
+  position: relative;
+}
+body .header .wrapper .top .logo a {
+  text-decoration: none;
+  font-size: 44px;
+  color: #ffffff;
+  line-height: 70px;
+}
+body .header .wrapper .top .logo a span {
+  color: #dc3545;
+}
+body .header .wrapper .top .mess {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 18px 0;
+}
+body .header .wrapper .top .mess .ardess {
+  margin-right: 48px;
+}
+body .header .wrapper .top .mess .ardess span {
+  font-size: 36px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  color: #fdb62f;
+}
+body .header .wrapper .top .mess .ardess p {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 18px;
+  color: #ffffff;
+}
+body .header .wrapper .top .mess .time {
+  margin-right: 15px;
+}
+body .header .wrapper .top .mess .time span {
+  display: inline-block;
+  font-size: 36px;
+  margin-right: 15px;
+  color: #fd4d40;
+}
+body .header .wrapper .top .mess .time p {
+  display: inline-block;
+  line-height: 18px;
+  color: #ffffff;
+}
+body .header .wrapper .nav {
+  margin: 0 15px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 40px;
+  font-size: 0;
+}
+body .header .wrapper .nav ul.list {
+  display: inline-block;
+  padding: 30px 20px;
+}
+body .header .wrapper .nav ul.list li {
+  float: left;
+  margin: 0 15px;
+}
+body .header .wrapper .nav ul.list li a {
+  text-decoration: none;
+  color: #111111;
+  font-size: 16px;
+}
+body .header .wrapper .nav ul.list li:first-child a {
+  color: #fd4d40;
+}
+body .header .wrapper .nav .mark {
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  padding: 33px 25px;
+}
+body .header .wrapper .nav .mark a {
+  padding: 30px 20px;
+}
+body .header .wrapper .nav .mark a:nth-child(1) {
+  color: #16c3b0;
+}
+body .header .wrapper .nav .mark a:nth-child(2) {
+  color: #71bc42;
+}
+body .header .wrapper .nav .mark a:nth-child(3) {
+  color: #fdb62f;
+}
+body .header .wrapper .nav .mark a i {
+  font-size: 16px;
+}
+body .container {
+  padding: 150px 0;
+  position: relative;
+  overflow: hidden;
+}
+body .container .contain::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+body .container .contain .wrap {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+body .container .contain .wrap .row {
+  width: 40%;
+  box-sizing: border-box;
+  margin-top: 48px;
+  padding: 48px 15px 0;
+  position: relative;
+}
+body .container .contain .wrap .row span {
+  font-size: 20px;
+  color: #fd4d40;
+  font-family: "mt";
+}
+body .container .contain .wrap .row h2 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+body .container .contain .wrap .row p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+body .container .contain .wrap .row .btn {
+  display: inline-block;
+  padding: 24px 20px;
+  margin: 48px 0 16px;
+  background-color: #dc3545;
+  border-radius: 24px 0;
+}
+body .container .contain .wrap .row .btn a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .container .contain .wrap .row .btn:hover {
+  background-color: #c82333;
+  transition: 0.5s;
+}
+body .container .contain .wrap .pic {
+  position: absolute;
+  width: 60%;
+  box-sizing: border-box;
+  padding: 0 15px 0 165px;
+  right: 0;
+  top: -60%;
+}
+body .container .contain .wrap .pic img {
+  width: 100%;
+}
+body .ele {
+  padding: 120px 0;
+}
+body .ele .wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .ele .wrapper .big-card li {
+  width: 33.33%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 15px;
+}
+body .ele .wrapper .big-card li .card {
+  padding: 40px;
+  text-align: center;
+  position: relative;
+}
+body .ele .wrapper .big-card li .card .icon {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  border-radius: 80px 80px 0 0;
+  top: -30px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+body .ele .wrapper .big-card li .card .icon span {
+  font-size: 32px;
+  color: #ffffff;
+  line-height: 80px;
+}
+body .ele .wrapper .big-card li .card h3 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  margin-top: 40px;
+}
+body .ele .wrapper .big-card li .card p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 25px 0;
+}
+body .ele .wrapper .big-card li .a {
+  background-color: #fd4d40;
+}
+body .ele .wrapper .big-card li .a .icon {
+  background-color: #fd4d40;
+}
+body .ele .wrapper .big-card li .b {
+  background-color: #fdb62f;
+}
+body .ele .wrapper .big-card li .b .icon {
+  background-color: #fdb62f;
+}
+body .ele .wrapper .big-card li .c {
+  background-color: #16c3b0;
+}
+body .ele .wrapper .big-card li .c .icon {
+  background-color: #16c3b0;
+}
+body .light {
+  padding: 120px 0;
+  background-color: #f6f5f5;
+}
+body .light .wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .light .wrapper .pic {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+body .light .wrapper .cont {
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 145px;
+  padding-right: 15px;
+}
+body .light .wrapper .cont span {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 8px;
+  color: #fd4d40;
+  font-family: "mt";
+}
+body .light .wrapper .cont h3 {
+  font-size: 28px;
+  color: #111111;
+  line-height: 38px;
+  margin-bottom: 8px;
+}
+body .light .wrapper .cont p {
+  font-size: 16px;
+  line-height: 32px;
+  color: #364d59;
+}
+body .light .wrapper .cont .btn {
+  display: inline-block;
+  padding: 24px 20px;
+  margin: 48px 0 16px;
+  background-color: #ffc107;
+  border-radius: 24px 0;
+}
+body .light .wrapper .cont .btn a {
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #111111;
+}
+body .light .wrapper .cont .btn:hover {
+  background-color: #e0a800;
+  transition: 0.5s;
+}
+body .sect {
+  padding: 120px 0;
+  background-color: #17a2b8;
+}
+body .sect .wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .sect .wrapper .title {
+  text-align: center;
+}
+body .sect .wrapper .title span {
+  font-size: 20px;
+  margin-bottom: 8px;
+  line-height: 36px;
+  color: #fd4d40;
+  font-family: "mt";
+}
+body .sect .wrapper .title h3 {
+  font-size: 32px;
+  line-height: 36px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+}
+body .sect .wrapper .Bigcard li {
+  width: 33.33%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 15px;
+}
+body .sect .wrapper .Bigcard li .smallcard {
+  padding: 40px;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+}
+body .sect .wrapper .Bigcard li .smallcard span img {
+  width: 80px;
+  height: 80px;
+}
+body .sect .wrapper .Bigcard li .smallcard h2 {
+  color: #16c3b0;
+  font-size: 18px;
+  margin: 35px 0;
+}
+body .sect .wrapper .Bigcard li .smallcard h4 {
+  color: #71bc42;
+  font-size: 18px;
+  margin: 35px 0;
+}
+body .sect .wrapper .Bigcard li .smallcard h6 {
+  color: #dc3545;
+  font-size: 18px;
+  margin: 35px 0;
+}
+body .sect .wrapper .Bigcard li .smallcard p {
+  color: #777;
+  font-size: 16px;
+}
+body .sect .wrapper .Bigcard li .smallcard .btna {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 48px 0 16px;
+  background-color: #dc3545;
+  border-radius: 24px 0;
+}
+body .sect .wrapper .Bigcard li .smallcard .btna a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .sect .wrapper .Bigcard li .smallcard .btna:hover {
+  background-color: #c82333;
+  transition: 0.5s;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnb {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 48px 0 16px;
+  background-color: #ffc107;
+  border-radius: 24px 0;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnb a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #111;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnb:hover {
+  background-color: #e0a800;
+  transition: 0.5s;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnc {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 48px 0 16px;
+  background-color: #71bc42;
+  border-radius: 24px 0;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnc a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #111;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnc:hover {
+  background-color: #60a038;
+  transition: 0.5s;
+}
+body .sect .wrapper .Bigcard li .smallcard .btnc:hover a {
+  color: #fff;
+  transition: 0.5s;
+}
+body .site {
+  padding: 120px 0;
+}
+body .site .wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .site .wrap .row {
+  width: 100%;
+}
+body .site .wrap .row .ll {
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+body .site .wrap .row .ll span {
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 32px;
+  color: #fd4d40;
+  font-family: "mt";
+}
+body .site .wrap .row .ll h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+body .site .wrap .row .ll p {
+  font-size: 16px;
+  line-height: 30px;
+  color: #777;
+}
+body .site .wrap .row .mid {
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  color: #364d59;
+}
+body .site .wrap .row .mid .box {
+  position: relative;
+}
+body .site .wrap .row .mid .box .price {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background-color: #16c3b0;
+  text-align: center;
+  border-radius: 90px;
+  margin-bottom: 30px;
+}
+body .site .wrap .row .mid .box .price span {
+  font-size: 26px;
+  line-height: 90px;
+}
+body .site .wrap .row .mid .box::after {
+  position: absolute;
+  content: "";
+  width: 70px;
+  height: 70px;
+  border: 3px solid #ffffff;
+  top: 7px;
+  left: 7px;
+  border-radius: 80px;
+}
+body .site .wrap .row .mid h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+body .site .wrap .row .mid .siler li {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+body .site .wrap .row .mid .siler li i {
+  padding-right: 15px;
+  color: #16c3b0;
+}
+body .site .wrap .row .mid .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 48px 0 16px;
+  background-color: #16c3b0;
+  border-radius: 24px 0;
+}
+body .site .wrap .row .mid .btn a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .site .wrap .row .lr {
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  color: #364d59;
+}
+body .site .wrap .row .lr .box {
+  position: relative;
+}
+body .site .wrap .row .lr .box .price {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background-color: #fd4d40;
+  text-align: center;
+  border-radius: 90px;
+  margin-bottom: 30px;
+}
+body .site .wrap .row .lr .box .price span {
+  font-size: 26px;
+  line-height: 90px;
+}
+body .site .wrap .row .lr .box::after {
+  position: absolute;
+  content: "";
+  width: 70px;
+  height: 70px;
+  border: 3px solid #ffffff;
+  top: 7px;
+  left: 7px;
+  border-radius: 80px;
+}
+body .site .wrap .row .lr h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+body .site .wrap .row .lr .gode li {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+body .site .wrap .row .lr .gode li i {
+  padding-right: 15px;
+  color: #fd4d40;
+}
+body .site .wrap .row .lr .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 48px 0 16px;
+  background-color: #fd4d40;
+  border-radius: 24px 0;
+}
+body .site .wrap .row .lr .btn a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .moni {
+  padding: 120px 0;
+  background-color: #f6f5f5;
+}
+body .moni .wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .moni .wrapper .title {
+  text-align: center;
+}
+body .moni .wrapper .title span {
+  font-size: 20px;
+  line-height: 36px;
+  color: #fd4d40;
+  font-family: "mt";
+}
+body .moni .wrapper .title h2 {
+  font-size: 32px;
+  line-height: 36px;
+  color: #111111;
+  margin-top: 8px;
+  margin-bottom: 48px;
+}
+body .moni .wrapper .contain {
+  width: 60%;
+  margin: 0 auto;
+}
+body .moni .wrapper .contain .card {
+  background-color: #fd4d40;
+  padding: 30px;
+  position: relative;
+}
+body .moni .wrapper .contain .card img {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+body .moni .wrapper .contain .card .net {
+  width: 580px;
+  float: right;
+  box-sizing: border-box;
+  padding-left: 45px;
+  color: #ffffff;
+}
+body .moni .wrapper .contain .card .net h5 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+body .moni .wrapper .contain .card .net i {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+body .moni .wrapper .contain .card .net p {
+  font-size: 20px;
+  line-height: 35px;
+  margin-bottom: 16px;
+}
+body .moni .wrapper .contain .card .mark {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+body .moni .wrapper .contain .card .mark span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #f6f5f5;
+  border-radius: 7px;
+  margin: 0 3px;
+}
+body .moni .wrapper .tol {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+body .moni .wrapper .tol .num {
+  padding: 0 15px;
+  margin-top: 48px;
+}
+body .moni .wrapper .tol .num .card {
+  display: inline-block;
+  margin: 0 34px;
+}
+body .moni .wrapper .tol .num .card h6 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+body .moni .wrapper .tol .num .card p {
+  font-size: 16px;
+  color: #364d59;
+  font-weight: 400;
+}
+body .moni .wrapper .tol .num .ca h6 {
+  color: #16c3b0;
+}
+body .moni .wrapper .tol .num .cb h6 {
+  color: #fdb62f;
+}
+body .moni .wrapper .tol .num .cc h6 {
+  color: #71bc42;
+}
+body .moni .wrapper .tol .num .cd h6 {
+  color: #dc3545;
+}
+body .war {
+  padding: 48px 0;
+  background-color: #ffc107;
+}
+body .war .row {
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 0;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+body .war .row h2 {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 50px;
+  vertical-align: bottom;
+}
+body .war .row .btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background-color: #dc3545;
+  border-radius: 24px 0;
+  vertical-align: bottom;
+}
+body .war .row .btn a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+body .war .row .btn:hover {
+  background-color: #c82333;
+  transition: 0.5s;
+}
+body .footer {
+  background-color: #343a40;
+  padding: 130px;
+}
+body .footer .wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+body .footer .wrapper .left {
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+body .footer .wrapper .left h2 {
+  font-size: 18px;
+  color: #fd4d40;
+  margin-bottom: 16px;
+}
+body .footer .wrapper .left p {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 48px;
+  line-height: 32px;
+  font-weight: 300;
+}
+body .footer .wrapper .left .text {
+  font-size: 0;
+}
+body .footer .wrapper .left .text .em {
+  border: 1px solid #666666;
+  margin: 0;
+  padding: 0;
+  padding: 6px 12px;
+  line-height: 38px;
+  margin-right: 16px;
+  border-radius: 10px;
+  width: 60%;
+}
+body .footer .wrapper .left .text .subm {
+  padding: 17px 30px;
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 30px;
+  border: 1px solid #dc3545;
+}
+body .footer .wrapper .left .text .subm:hover {
+  background-color: #c82333;
+  transition: 0.5s;
+}
+body .footer .wrapper .right {
+  width: 66.66%;
+  box-sizing: border-box;
+  padding-left: 240px;
+}
+body .footer .wrapper .right .bigcard {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+}
+body .footer .wrapper .right .bigcard .card h2 {
+  font-size: 18px;
+  color: #fd4d40;
+  margin-bottom: 28px;
+}
+body .footer .wrapper .right .bigcard .card li {
+  margin-bottom: 15px;
+}
+body .footer .wrapper .right .bigcard .card li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  opacity: 0.8;
+}
+body .footer .wrapper .right .bigcard .card li a:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+body .footer .foot {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 48px;
+  margin-top: 48px;
+}
+body .footer .foot .coon {
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+body .footer .foot .coon p {
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: #ffffff;
+  font-weight: 400;
+}
+body .footer .foot .coon p i {
+  color: #fd4d40;
+}
+body .footer .foot .coon p a {
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.8;
+}
+/*# sourceMappingURL=./儿童网.css.map */

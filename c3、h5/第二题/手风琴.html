@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 700px;
+            height: 69px;
+            background-color: #1d4269;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .wrap ul {
+            width: 100%;
+            height: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .wrap ul li {
+            width: 224px;
+            height: 100%;
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .wrap ul li:nth-of-type(n+2) {
+            width: 69px;
+        }
+
+        .wrap ul li img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .wrap ul li img:nth-of-type(1) {
+            width: 224px;
+            height: 69px;
+        }
+
+        .wrap ul li img:nth-of-type(2) {
+            width: 69px;
+            height: 69px;
+            /* display: none; */
+        }
+
+        .wrap ul li:nth-of-type(n+2) img:nth-of-type(1) {
+            display: none;
+        }
+
+        .wrap ul li:nth-of-type(1) img:nth-of-type(2) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li><img src="./img/126-freehover.png"><img src="./img/126.webp"></li>
+            <li><img src="./img/127-freehover.png"><img src="./img/127.webp"></li>
+            <li><img src="./img/131-freehover.png"><img src="./img/131.webp"></li>
+            <li><img src="./img/173-freehover.png"><img src="./img/173.webp"></li>
+            <li><img src="./img/507-freehover.png"><img src="./img/507.webp"></li>
+            <li><img src="./img/525-freehover.png"><img src="./img/525.webp"></li>
+            <li><img src="./img/531-freehover.png"><img src="./img/531.webp"></li>
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            $("ul li").mouseenter(function () {
+                $(this).stop().animate({ width: 224 }, 500).children().eq(0).show().siblings().hide().parent()
+                    .siblings().stop().animate({ width: 69 }, 500).each(function (i, e) {
+                        $(e).children().eq(1).stop().animate({
+                            opacity: 'show'
+                        }, 1000).siblings().hide();
+                    })
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <link rel="stylesheet" href="http://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .card {
+            width: 500px;
+            height: 500px;
+            background-color: beige;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            margin: 0 auto;
+        }
+        
+
+        .card li {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            color: aquamarine;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card li.open {
+            color: white;
+        }
+
+        .card li.eq {
+            color: white;
+            background-color: brown;
+        }
+
+        .card li i {
+            /* color: #111; */
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="card"></ul>
+</body>
+<script>
+    var card = document.querySelector('.card');
+    var mark = ['fa-wheelchair-alt', 'fa-gg', 'fa-envira', 'fa-free-code-camp', 'fa-empire', 'fa-qq', 'fa-weixin', 'fa-connectdevelop'];
+    // console.log(mark);
+    // console.log(card.children);
+    function doubleArr(array) {
+        var newArray = [];
+        array.forEach(e => {
+            newArray.push(e);
+            newArray.push(e);
+        })
+        return newArray;
+    }
+    // console.log(doubleArr(mark));
+    function shuffle(array) {
+        return array.sort(() => {
+            return Math.random() - 0.5;
+        })
+    }
+    // console.log(shuffle(doubleArr(mark)));
+
+    shuffle(doubleArr(mark)).forEach(e => {
+        // console.log(e);
+        var li = document.createElement('li');
+        li.innerHTML = '<i class="fa ' + e + '"></i>';
+        card.appendChild(li);
+        li.onclick = function () {
+            if (!this.classList.contains('eq')) {
+                this.classList.add('open');
+                // console.log(this.classList);
+                var newArr = [];
+                for (var i = 0; i < card.children.length; i++) {
+                    if (card.children[i].classList.contains('open')) {
+                        newArr.push(card.children[i]);
+                    }
+                }
+                console.log(newArr);
+                if (newArr.length === 2) {
+                    setTimeout(() => {
+                        newArr[0].classList.remove('open');
+                        newArr[1].classList.remove('open');
+                    }, 500)
+                    if (newArr[0].innerHTML === newArr[1].innerHTML) {
+                        setTimeout(() => {
+                            newArr[0].classList.add('eq');
+                            newArr[1].classList.add('eq');
+                        }, 250)
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</html>

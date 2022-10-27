@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 340px;
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0 auto;
+        }
+
+        .w {
+            width: 86.6px;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .ww {
+            width: 40px;
+            position: relative;
+        }
+        span{
+            display: block;
+            position: absolute;
+            content: "";
+            width: 33.33%;
+            height: 13.33px;
+            background-color: #111111;
+        }
+        span:nth-of-type(1) {
+            top: 13.33px;
+            left: 13.33px;
+        }
+
+        span:nth-of-type(2) {
+            bottom: 13.33px;
+            left: 13.33px;
+        }
+
+        .ground {
+            width: 40px;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .row {
+            width: 40px;
+            display: flex;
+            /* background-color: bisque; */
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        li {
+            width: 33.33%;
+            list-style: none;
+            height: 13.33px;
+            outline: 1px solid #ffffff;
+            background-color: #111111;
+            opacity: 0;
+            transition: all 0.5s;
+            transform: scale(0.2);
+            box-sizing: border-box;
+        }
+
+        li.show {
+            opacity: 1;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="w hour">
+            <div class="ground ha">
+                <div class="row"></div>
+            </div>
+            <div class="ground hb">
+                <div class="row"></div>
+            </div>
+        </div>
+        <div class="ww">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="w minute">
+            <div class="ground ma">
+                <div class="row"></div>
+            </div>
+            <div class="ground mb">
+                <div class="row"></div>
+            </div>
+        </div>
+        <div class="ww">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="w second">
+            <div class="ground sa">
+                <div class="row"></div>
+            </div>
+            <div class="ground sb">
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var nums = [
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 0],
+                [0, 1, 0],
+                [0, 1, 0],
+                [0, 1, 0],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+            ],
+        ];
+        var r = document.querySelectorAll('.row');
+        //  初始化
+        nums[0].forEach((row, rowIndex) => {
+            row.forEach((col, colIndex) => {
+                r.forEach((e, i) => {
+                    var newli = document.createElement('li');
+                    e.appendChild(newli);
+                })
+            })
+        });
+        function show() {
+            var date = new Date();
+            var h = String(date.getHours()).padStart(2, '0');
+            var m = String(date.getMinutes()).padStart(2, '0');
+            var s = String(date.getSeconds()).padStart(2, '0');
+            var hg = document.querySelector('.hour').querySelectorAll('.ground');
+            var mg = document.querySelector('.minute').querySelectorAll('.ground');
+            var sg = document.querySelector('.second').querySelectorAll('.ground');
+            hg.forEach(function (el, n) {
+                showNum(el, h[n]);
+            });
+            mg.forEach(function (el, n) {
+                showNum(el, m[n]);
+            });
+            sg.forEach(function (el, n) {
+                showNum(el, s[n]);
+            });
+        }
+        function showNum(ele, m) {
+            var li = ele.children[0].querySelectorAll('li');
+            nums[m].forEach((row, rowIndex) => {
+                row.forEach((col, colIndex) => {
+                    if (col) {
+                        li[rowIndex * 3 + colIndex].classList.add('show');
+                    } else {
+                        li[rowIndex * 3 + colIndex].classList.remove('show');
+                    }
+                })
+            });
+        }
+        setInterval(show, 500);
+        // show();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grow">grow</div>
+    <div class="shrink">shrink</div>
+    <div class="pulse">pulse</div>
+    <div class="plusegrow">plusegrow</div>
+    <div class="pulseshrink">pulseshrink</div>
+    <div class="push">push</div>
+    <div class="pop">pop</div>
+    <div class="BounceIn">Bounce In</div>
+    <div class="BounceOut">Bounce Out</div>
+    <div class="Rotate">Rotate</div>
+    <div class="GrowRotate">GrowRotate</div>
+    <div class="Float">Float</div>
+    <div class="Sink">Sink</div>
+    <div class="Skew">Skew</div>
+    <div class="bob">bob</div>
+    <div class="Hang">Hang</div>
+    <div class="Horizontal">Wobble Horizontal</div>
+
+    <style>
+        div {
+            display: inline-block;
+            padding: 10px;
+            margin: 40px;
+            background-color: #e1e1e1;
+        }
+
+        .grow:hover {
+            animation: grow 1s forwards;
+        }
+
+        @keyframes grow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.5);
+            }
+        }
+
+        .shrink:hover {
+            animation: shrink 1s forwards;
+
+        }
+
+        @keyframes shrink {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0.6);
+            }
+        }
+
+        .pulse:hover {
+            animation: pulse 0.6s linear infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(0.8);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .plusegrow:hover {
+            animation: plusegrow 0.4s linear infinite alternate;
+        }
+
+        @keyframes plusegrow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .pulseshrink:hover {
+            animation: pulseshrink 0.4s linear infinite alternate;
+        }
+
+        @keyframes pulseshrink {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0.8);
+            }
+        }
+
+        .push:hover {
+            animation: push 0.4s linear alternate;
+        }
+
+        @keyframes push {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.6);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pop:hover {
+            animation: pop 0.4s linear alternate;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .BounceIn:hover {
+            animation: BounceIn .6s cubic-bezier(0.47, 2.02, 0.31, -0.36) forwards;
+        }
+
+        @keyframes BounceIn {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        .BounceOut:hover {
+            animation: BounceOut .6s cubic-bezier(0.47, 2.02, 0.31, -0.36) forwards;
+        }
+
+        @keyframes BounceOut {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.8);
+            }
+        }
+
+        .Rotate:hover {
+            animation: Rotate 1s forwards;
+        }
+
+        @keyframes Rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .GrowRotate:hover {
+            animation: GrowRotate .3s forwards;
+        }
+
+        @keyframes GrowRotate {
+            0% {
+                transform: rotate(0) scale(1);
+            }
+
+            100% {
+                transform: rotate(5deg) scale(1.2);
+            }
+        }
+
+        .Float:hover {
+            animation: Float .3s forwards linear;
+            transition: all .3s;
+        }
+
+        @keyframes Float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .Sink:hover {
+            animation: Sink .3s forwards linear;
+            transition: all .3s;
+        }
+
+        @keyframes Sink {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        .Skew:hover {
+            animation: Skew .3s forwards;
+        }
+
+        @keyframes Skew {
+            0% {
+                transform: skew(0);
+            }
+
+            100% {
+                transform: skew(-15deg);
+            }
+        }
+
+
+        .bob:hover {
+            animation-name: bob;
+            animation-timing-function: ease-out, ease-in-out;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes bob {
+            from {
+                transform: translateY(-5px);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        .Hang:hover {
+            animation-name: Hang;
+            animation-timing-function: ease-out, ease-in-out;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes Hang {
+            from {
+                transform: translateY(5px);
+            }
+
+            to {
+                transform: translateY(10px);
+            }
+        }
+
+        .Horizontal:hover {
+            animation: Hori 1s alternate ease-in-out;
+            /* animation-name: Hori;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1s;
+            animation-iteration-count: 1; */
+        }
+
+        @keyframes Hori {
+            16.65% {
+                transform: translateX(8px);
+            }
+
+            33.3% {
+                transform: translateX(-6px);
+            }
+
+            49.95% {
+                transform: translateX(4px);
+            }
+
+            66.6% {
+                transform: translateX(-2px);
+            }
+
+            83.25% {
+                transform: translateX(1px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</body>
+
+</html>
