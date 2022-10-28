@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 12px;
+        }
+
+        .wrap {
+            width: 160px;
+            height: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .wrap a {
+            text-decoration: none;
+            color: #111;
+        }
+
+        .wrap a .pic {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap a .pic .picture {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap a .pic .picture img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap a .pic .cover {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap a .pic .cover .cov {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            height: 98px;
+            width: 100%;
+            margin-top: 2px;
+            background-position: 0px 0px;
+        }
+
+        .wrap a .pic .cover .bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 10px;
+            border-color: #000;
+            border-style: solid;
+            border-width: 4px 8px;
+            background: #444;
+            box-sizing: border-box;
+        }
+
+        .wrap a .pic .cover .bar span {
+            display: block;
+            background: #fff;
+            height: 2px;
+        }
+
+        .wrap a .pic .mask {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .2);
+        }
+
+        .wrap a .pic .danmu {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .wrap a .pic .danmu .dm {
+            position: absolute;
+            color: #fff;
+            left: 100%;
+            top: 8px;
+            white-space: pre;
+            text-shadow: 1px 1px 2px #001;
+            pointer-events: none;
+        }
+
+        .wrap a .pic .danmu .dm.row2 {
+            top: 25px;
+        }
+
+        .wrap a .pic .dur {
+            opacity: 0;
+            position: absolute;
+            bottom: 2px;
+            left: 6px;
+            color: #fff;
+            height: 12px;
+            line-height: 12px;
+            padding: 0 5px 1px 0;
+            transition: all 0.3s;
+        }
+
+        .wrap:hover a .pic .dur {
+            opacity: 1;
+        }
+
+        .wrap:hover a .pic .mask {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <a href="JavaScript:;">
+            <div class="pic">
+                <div class="picture"><img src="./img/eee63cd.webp" alt=""></div>
+                <div class="cover">
+                    <div class="bar">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="mask"></div>
+                <div class="danmu"></div>
+                <span class="dur">21:37</span>
+            </div>
+        </a>
+    </div>
+    <script>
+        var pvideo = {
+            duration: 1303,
+            img_x_len: 10,
+            img_y_len: 10,
+            img_x_size: 480,
+            img_y_size: 270,
+            image: [
+                "//bimp.hdslb.com/videoshotpvhdboss/486142478_dc4dcb-0001.jpg",
+                "//bimp.hdslb.com/videoshotpvhdboss/486142478_dc4dcb-0002.jpg",
+            ],
+            // length为171
+            index: [
+                0, 8, 14, 20, 25, 31, 39, 50, 61, 67, 73, 80, 87, 93, 104, 116, 126, 132, 138, 144, 152, 159, 170, 177, 186,
+                196, 207, 215, 224, 231, 238, 244, 249, 255, 260, 265, 271, 278, 283, 290, 297, 303, 311, 319, 330, 335, 350,
+                360, 365, 372, 383, 390, 401, 406, 411, 421, 428, 434, 444, 450, 457, 467, 472, 481, 487, 497, 502, 514, 520,
+                534, 542, 547, 555, 562, 568, 575, 581, 587, 592, 598, 605, 610, 615, 621, 633, 642, 650, 658, 668, 677, 690,
+                696, 702, 709, 715, 720, 733, 740, 746, 751, 759, 767, 776, 782, 790, 798, 804, 814, 826, 833, 840, 850, 856,
+                863, 872, 878, 886, 896, 903, 911, 918, 929, 937, 948, 953, 959, 965, 973, 979, 985, 994, 1001, 1015, 1022,
+                1028, 1034, 1040, 1047, 1059, 1064, 1071, 1077, 1084, 1090, 1099, 1105, 1111, 1121, 1130, 1139, 1150, 1156,
+                1162, 1171, 1178, 1184, 1191, 1197, 1203, 1210, 1216, 1221, 1228, 1233, 1242, 1250, 1260, 1272, 1282, 1292,
+                1297,
+            ],
+        };
+
+        var dm = [
+            "章鱼哥还是没有胜过强风暴雨(doge)",
+            "日本裁判",
+            "日本裁判",
+            "海绵宝宝笑死我了",
+            "黑人小哥",
+            "堡垒之夜",
+            "最喜欢的一集",
+            "最喜欢的一集",
+            "喜欢",
+            "我怎么觉得派大星这个配音我在神奇宝贝里听过",
+            "我看见你了",
+            "但凡章鱼哥早点回去都不至于这样",
+            "这……这我还真有可能“模仿”",
+            "为什么非要执着于台配或者央配呢",
+            "派总依旧稳定输出",
+            "包租公～",
+            "为什么台配的海绵宝宝跟低能儿似的",
+            "井字游戏，其实可以先手必胜的",
+            "我小时候就看的台配",
+            "终于找到了",
+        ];
+
+        // 动态生成弹幕
+        $.each(dm, function (i, e) {
+            var p = document.createElement('p');
+            if (i % 2 === 0) {
+                p.className = 'dm';
+                p.innerText = e;
+            } else {
+                p.className = 'dm row2';
+                p.innerText = e;
+            }
+            document.querySelector('.danmu').appendChild(p);
+        })
+        var pp = document.querySelectorAll('p');
+        var index = 0;
+        var timer = null;
+
+        //  鼠标移进移出时触发事件
+        $(".wrap").hover(function () {
+            //  创建 div 元素
+            var div = $("<div class='cov'></div>");
+            //  当$(".cover")的子元素小于2时添加    div元素
+            if ($(".cover").children().length < 2) {
+                $(".cover").prepend(div);
+            }
+            $(".cover").delay(500).animate({
+                "opacity": 1,
+            }, 0)
+            $(".danmu").css({
+                "opacity": 1,
+            })
+            //  弹幕移动的函数
+            function showDm() {
+                timer = setInterval(function () {
+                    $(pp).eq(index).delay(500).animate({ left: -$(pp).eq(index).width() }, 6000);
+                    index++;
+                    //  当 index 大于 $(pp) 长度时,清除定时器,让 index 为 0 以及 让所有弹幕回到最初的偏移量;
+                    if (index > $(pp).length) {
+                        clearInterval(timer);
+                        index = 0;
+                        $(pp).delay(500).animate({ left: "100%" }, 0);
+                        //  回调函数
+                        showDm();
+                    }
+                }, 1200)
+            }
+            showDm();
+        }, function () {
+            $(".cover").animate({
+                "opacity": 0,
+            }, 0)
+            index = 0;
+            clearInterval(timer);
+            $(".danmu").css({
+                "opacity": 0,
+            })
+            // 当鼠标移出后,将所有弹幕设置为最初的偏移量
+            $(pp).stop().animate({ left: "100%" }, 0);
+        })
+
+        //  声明y轴变化的基数
+        var indexY = 0
+        var num = ($(".cover").width() / pvideo.index.length).toFixed(3)
+        $(".wrap").mousemove(function () {
+            $.each(pvideo.index, function (i, el) {
+                if (event.offsetX >= i * num) {
+                    //  进度条
+                    $(".bar span").width(i * 0.847);
+                    //  当i % 10 === 0时,取鼠标x轴偏移与此时图片在盒子里的位移的商,往下取整赋给 indexY
+                    if (i % 10 === 0) {
+                        indexY = Math.floor(event.offsetX / (10 * num));
+                    }
+                    //  当索引小于100时使用图一 并根据 索引和y轴变化的基数改变背景图偏移
+                    if (i < 100 && indexY < 10) {
+                        $(".cov").css({
+                            backgroundImage: "url(./img/486142478_dc4dcb-0001.jpg)",
+                            backgroundSize: 1600,
+                            backgroundPositionX: -i % 10 * 160,
+                            backgroundPositionY: -indexY * 90,
+                        })
+                    }
+                    //  当索引大于等于100时使用图二
+                    else {
+                        $(".cov").css({
+                            backgroundImage: "url(./img/486142478_dc4dcb-0002.jpg)",
+                            backgroundSize: 1600,
+                            backgroundPositionX: -(i - 99) % 10 * 160,
+                            backgroundPositionY: -(indexY - 10) * 90,
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

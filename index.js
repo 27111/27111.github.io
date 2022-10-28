@@ -86,6 +86,12 @@ $(function () {
         },
         {
             id: "JS&JQ",
+            path: "./JavaScript/海绵宝宝/B站.html",
+            picture: "./img/海绵宝宝.png",
+            describe: "海绵宝宝",
+        },
+        {
+            id: "JS&JQ",
             path: "./JavaScript/抽奖.html",
             picture: "./img/九宫格抽奖.png",
             describe: "九宫格抽奖",

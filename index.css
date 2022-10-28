@@ -421,6 +421,11 @@ body .wrap3 .rowper .menu_nav li {
   color: #FFB90F;
   text-shadow: 0 0 0.25rem #FF4500;
 }
+@media screen and (max-width: 480px) {
+  body .wrap3 .rowper .menu_nav li {
+    font-size: 12rem;
+  }
+}
 body .wrap3 .rowper .conn {
   width: 100%;
   height: 85%;
