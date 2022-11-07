@@ -61,6 +61,12 @@ $(function () {
             describe: "波点音乐",
         },
         {
+            id: "vue",
+            path: "./xm/dist/dist/index.html",
+            picture: "./img/波点音乐.png",
+            describe: "波点音乐",
+        },
+        {
             id: "JS&JQ",
             path: "./JavaScript/ajax/B站漫画.html",
             picture: "./img/bilibili漫画.png",
