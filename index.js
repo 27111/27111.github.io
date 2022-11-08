@@ -50,21 +50,21 @@ $(function () {
         },
         {
             id: "vue",
-            path: "./vue/todos/dist/index.html",
+            path: "./ww/dist/index.html",
             picture: "./img/todos.png",
             describe: "todos",
         },
         {
             id: "vue",
-            path: "./vue/vue2-music/dist/index.html",
+            path: "./music/dist/index.html",
             picture: "./img/波点音乐.png",
             describe: "波点音乐",
         },
         {
             id: "vue",
             path: "./xm/dist/dist/index.html",
-            picture: "./img/波点音乐.png",
-            describe: "波点音乐",
+            picture: "./img/糗事百科.png",
+            describe: "糗事百科",
         },
         {
             id: "JS&JQ",
