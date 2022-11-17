@@ -26,6 +26,18 @@ $(function () {
     var zuopinArr = [
         {
             id: "Css&Html",
+            path: "./360极速浏览器/浏览器.html",
+            picture: "./img/360.png",
+            describe: "360极速浏览器",
+        },
+        {
+            id: "Css&Html",
+            path: "./html、css/携程旅行/携程旅行.html",
+            picture: "./img/仿携程旅行.png",
+            describe: "携程旅行",
+        },
+        {
+            id: "Css&Html",
             path: "./c3、h5/3D/chart.html",
             picture: "./img/3D卡片.png",
             describe: "3D卡片",
@@ -116,15 +128,15 @@ $(function () {
         },
         {
             id: "bootStrap",
-            path: "./360极速浏览器/浏览器.html",
-            picture: "./img/360.png",
-            describe: "360极速浏览器",
-        },
-        {
-            id: "bootStrap",
             path: "./bootStrap/整形网/整形网.html",
             picture: "./img/整形.png",
             describe: "整形网页",
+        },
+        {
+            id: "bootStrap",
+            path: "./bootStrap/服装网/服装网站.html",
+            picture: "./img/服装网.png",
+            describe: "服装网",
         },
         {
             id: "Css&Html",

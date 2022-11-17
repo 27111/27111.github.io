@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "uni-transition": "/uni_modules/uni-transition/components/uni-transition/uni-transition",
+    "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",
+    "uni-rate": "/uni_modules/uni-rate/components/uni-rate/uni-rate"
+  }
+}

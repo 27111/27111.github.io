@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/rank",
+    "pages/index/Detailpage/Detailpage",
+    "pages/index/collect",
+    "pages/index/me",
+    "pages/area/area",
+    "pages/correlation/correlation",
+    "pages/correlation/hotel",
+    "pages/area/RankingDetail",
+    "pages/area/Foot",
+    "pages/index/Hoteldetails/Hoteldetails",
+    "pages/index/Search/Search",
+    "pages/index/RestaurantIntro/RestaurantIntro",
+    "pages/index/Hotelintro/Hotelintro",
+    "pages/index/Attractiondetails/Attractiondetails",
+    "pages/index/Register/Register"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#F7F7F7",
+    "color": "#888",
+    "selectedColor": "#000",
+    "list": [
+      {
+        "iconPath": "static/compass1.png",
+        "selectedIconPath": "static/compass.png",
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "iconPath": "static/rank1.png",
+        "selectedIconPath": "static/rank.png",
+        "text": "榜单",
+        "pagePath": "pages/index/rank"
+      },
+      {
+        "iconPath": "static/collect1.png",
+        "selectedIconPath": "static/collect.png",
+        "text": "收藏",
+        "pagePath": "pages/index/collect"
+      },
+      {
+        "iconPath": "static/me1.png",
+        "selectedIconPath": "static/me.png",
+        "text": "我的",
+        "pagePath": "pages/index/me"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,298 @@
+html {
+  background-color: #f4f4f4;
+}
+body {
+  width: 375px;
+  margin: 0 auto;
+  background-color: #fff;
+  height: 680px;
+}
+body .header {
+  padding: 12px 12px 6px;
+}
+body .header .wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+body .header .wrap input {
+  outline: none;
+  border: 1.8px solid #0086f6;
+  border-radius: 20px;
+  width: 100%;
+  height: 32px;
+  text-align: justify;
+  padding-left: 40px;
+  color: #999;
+}
+body .header .wrap i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+body .nav {
+  padding: 6px 12px 2px;
+}
+body .nav .wrapper {
+  width: 100%;
+  height: 100%;
+}
+body .nav .wrapper .list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  overflow: hidden;
+}
+body .nav .wrapper .list li {
+  width: 19.8%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 58px;
+}
+body .nav .wrapper .list li img {
+  width: 28px;
+  height: 28px;
+}
+body .nav .wrapper .list li span {
+  display: block;
+  font-size: 12px;
+}
+body .nav .wrapper .list li:nth-of-type(1) {
+  background-color: #fa6455;
+  color: #fff;
+}
+body .nav .wrapper .list li:nth-of-type(2) {
+  background-color: #408cfa;
+  color: #fff;
+}
+body .nav .wrapper .list li:nth-of-type(3) {
+  background-color: #6089ff;
+  color: #fff;
+}
+body .nav .wrapper .list li:nth-of-type(4) {
+  background-color: #35c7b5;
+  color: #fff;
+}
+body .nav .wrapper .list li:nth-of-type(5) {
+  background-color: #ff923d;
+  color: #fff;
+}
+body .nav .wrapper .list li:nth-of-type(6),
+body .nav .wrapper .list li:nth-of-type(11) {
+  background-color: #fff5f1;
+}
+body .nav .wrapper .list li:nth-of-type(7),
+body .nav .wrapper .list li:nth-of-type(12) {
+  background-color: #eff9ff;
+}
+body .nav .wrapper .list li:nth-of-type(8),
+body .nav .wrapper .list li:nth-of-type(13) {
+  background-color: #f2f5ff;
+}
+body .nav .wrapper .list li:nth-of-type(9),
+body .nav .wrapper .list li:nth-of-type(14) {
+  background-color: #ecfcf8;
+}
+body .nav .wrapper .list li:nth-of-type(10),
+body .nav .wrapper .list li:nth-of-type(15) {
+  background-color: #fff9f2;
+}
+body .pc {
+  padding: 24px 12px 0;
+  background-color: #f4f4f4;
+}
+body .pc .wrap {
+  display: flex;
+  justify-content: space-between;
+}
+body .pc .wrap .card {
+  border-radius: 10px;
+}
+body .pc .wrap .card:nth-of-type(1) {
+  width: 49%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-right: 2.5px;
+}
+body .pc .wrap .card:nth-of-type(1) h3 {
+  width: 64px;
+  height: 20px;
+  font-size: 14px;
+  float: left;
+  color: #ff4607;
+}
+body .pc .wrap .card:nth-of-type(1) h5 {
+  font-size: 10px;
+  float: right;
+  background-color: #ffebe3;
+  line-height: 20px;
+  height: 20px;
+  border-radius: 3px;
+  color: #ff4607;
+  padding: 0 3px;
+}
+body .pc .wrap .card:nth-of-type(1) img {
+  width: 100%;
+  height: 85px;
+  border-radius: 5px;
+  margin-top: 9px;
+}
+body .pc .wrap .card:nth-of-type(1) span {
+  color: #ff6600;
+  font-size: 16px;
+  font-weight: 700;
+}
+body .pc .wrap .card:nth-of-type(2) {
+  width: 49%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-right: 2.5px;
+}
+body .pc .wrap .card:nth-of-type(2) h3 {
+  width: 73px;
+  height: 20px;
+  font-size: 14px;
+  float: left;
+  color: #ae6e15;
+}
+body .pc .wrap .card:nth-of-type(2) h5 {
+  font-size: 10px;
+  float: right;
+  background-color: #ffebe3;
+  line-height: 20px;
+  height: 20px;
+  color: #ae6e15;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+body .pc .wrap .card:nth-of-type(2) img:nth-of-type(1) {
+  width: 49%;
+  height: 85px;
+  border-radius: 5px;
+  float: left;
+  margin-top: 8px;
+}
+body .pc .wrap .card:nth-of-type(2) img:nth-of-type(2) {
+  width: 49%;
+  height: 85px;
+  border-radius: 5px;
+  float: right;
+  margin-top: 8px;
+  margin-left: 3px;
+}
+body .pc .wrap .card:nth-of-type(2) span {
+  color: #ff6600;
+  font-size: 16px;
+  font-weight: 700;
+}
+body .pic {
+  padding: 12px 12px 12px;
+  background-color: #f4f4f4;
+}
+body .pic img {
+  width: 352px;
+  height: 88px;
+}
+body .order {
+  padding: 12px 0 50px;
+  background-color: #f4f4f4;
+}
+body .order .head {
+  display: flex;
+  justify-content: space-around;
+}
+body .order .head h3 {
+  width: 102px;
+  height: 32px;
+  border: 1px solid;
+  font-size: 13px;
+  line-height: 32px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 5px;
+}
+body .order .head h3 i {
+  margin-right: 5px;
+}
+body .order .row h5 {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+body .order .row h5 a {
+  text-decoration: none;
+  color: #666;
+}
+body .order .row h5 a:nth-of-type(2) {
+  margin-left: 60px;
+}
+body .order .row p {
+  margin-top: 15px;
+  color: #666;
+  font-size: 10px;
+  text-align: center;
+}
+body .footer {
+  position: fixed;
+  bottom: 0;
+  width: 375px;
+  background-color: #fff;
+}
+body .footer .row {
+  display: flex;
+  padding: 0 20px;
+  justify-content: space-around;
+  position: relative;
+}
+body .footer .row li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+body .footer .row li i {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-size: 32px auto;
+  background-image: url(Images/1659750288.png);
+}
+body .footer .row li:nth-of-type(1) i {
+  background-position: 0 0;
+}
+body .footer .row li:nth-of-type(2) i {
+  background-position: 0 -32px;
+}
+body .footer .row li:nth-of-type(3) i {
+  background-position: 0 -64px;
+}
+body .footer .row li:nth-of-type(4) i {
+  background-position: 0 -96px;
+}
+body .footer .row li span {
+  font-size: 10px;
+  color: #666;
+}
+body .footer .dateqd {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: -100px;
+  right: 8px;
+  background-image: url(Images/1659750289.png);
+  background-size: 76px;
+}
+/*# sourceMappingURL=./携程旅行.css.map */
