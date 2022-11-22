@@ -85,6 +85,12 @@ $(function () {
             describe: "bilibili漫画",
         },
         {
+            id: "JS&JQ",
+            path: "./JavaScript/拖拽案例/anli.html",
+            picture: "./img/拖拽案例.png",
+            describe: "拖拽案例",
+        },
+        {
             id: "Css&Html",
             path: "./c3、h5/雷达效果.html",
             picture: "./img/雷达.png",
